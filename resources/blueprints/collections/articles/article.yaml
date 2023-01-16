@@ -1,0 +1,53 @@
+title: Article
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        import: article_fields
+        config:
+          title:
+            required: true
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: date
+        field:
+          type: date
+          required: true
+          validate:
+            - required
+          instructions_position: above
+          listable: hidden
+          visibility: visible
+          always_save: false
+          mode: single
+          time_enabled: false
+          time_seconds_enabled: false
+          full_width: false
+          inline: false
+          columns: 1
+          rows: 1
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - articles
+          max_items: 1
+          listable: false
+          localizable: true
+      -
+        handle: tags
+        field:
+          type: terms
+          taxonomies:
+            - tags
+          display: tags
+          mode: select
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true

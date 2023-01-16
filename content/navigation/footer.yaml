@@ -1,0 +1,5 @@
+title: Footer
+max_depth: 3
+collections:
+  - articles
+  - pages

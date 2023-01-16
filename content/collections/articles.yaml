@@ -1,0 +1,23 @@
+title: Articles
+template: templates/articles/default
+layout: layout
+taxonomies:
+  - tags
+revisions: false
+route: '/blog/{slug}'
+date: true
+sort_dir: asc
+default_status: draft
+date_behavior:
+  past: public
+  future: private
+preview_targets:
+  -
+    label: Entry
+    url: '/blog/{slug}'
+  -
+    label: Index
+    url: /blog
+structure:
+  root: false
+  slugs: true

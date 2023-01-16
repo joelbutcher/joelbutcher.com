@@ -1,0 +1,9 @@
+name: 'Joel Butcher'
+super: true
+roles:
+  - admin
+groups:
+  - admin
+avatar: cartoon.jpg
+id: 8335aa12-1c0a-4f6f-b6c7-ebc3b5c2574d
+password_hash: $2y$10$gSEo9hLJ1uc7hpUyz.GN/Od0Vaw6yGWj7oPzvt11KWBZA3tEBznVG

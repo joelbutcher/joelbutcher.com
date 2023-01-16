@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title ?? site:name }}</title>
+        {{ vite src="resources/css/tailwind.css|resources/js/site.js" }}
+    </head>
+    <body class="font-sans leading-normal text-gray-800 bg-gray-100">
+        {{ partial:partials/header }}
+        {{ template_content }}
+        {{  partial:partials/footer }}
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<a href="{{ url }}">
+    <img src="{{ featured_image }}" />
+    <article class="p-4">
+        <div class="flex items-center">
+            <img src="{{ author:avatar }}">
+            <div class="leading-tight ml-3">
+                <p class="font-bold">{{ author:name }}</p>
+                <p class="text-sm">{{ date }}</p>
+            </div>
+
+            <h2 class="text-2xl font-bold font-serif leading-tight mt-4">
+                {{ title }}
+            </h2>
+        </div>
+    </article>
+</a>
