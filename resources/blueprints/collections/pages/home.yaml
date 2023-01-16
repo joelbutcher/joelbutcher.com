@@ -28,6 +28,23 @@ sections:
           visibility: visible
           always_save: false
           folder: pages
+      -
+        handle: articles
+        field:
+          max_items: 5
+          mode: default
+          create: true
+          collections:
+            - articles
+          display: Articles
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          validate:
+            - required
   sidebar:
     display: Sidebar
     fields:
@@ -45,4 +62,4 @@ sections:
           max_items: 1
           listable: false
           localizable: true
-title: Page
+title: Home

@@ -1,4 +1,3 @@
-order: 1
 sections:
   main:
     display: Main
@@ -16,33 +15,34 @@ sections:
           type: markdown
           localizable: true
       -
-        handle: template
+        handle: category
         field:
-          hide_partials: true
-          blueprint: false
-          display: Template
-          type: template
-          icon: template
+          options:
+            workstation: Workstation
+            dev_tools: 'Dev Tools'
+            services: Services
+            productivity: Productivity
+          multiple: false
+          max_items: 1
+          clearable: false
+          searchable: true
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          display: Category
+          type: select
+          icon: select
           listable: hidden
           instructions_position: above
           visibility: visible
           always_save: false
-          folder: pages
+          validate:
+            - required
   sidebar:
-    display: Sidebar
     fields:
       -
         handle: slug
         field:
           type: slug
           localizable: true
-      -
-        handle: parent
-        field:
-          type: entries
-          collections:
-            - pages
-          max_items: 1
-          listable: false
-          localizable: true
-title: Page
+title: Use

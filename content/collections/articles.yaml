@@ -1,5 +1,5 @@
 title: Articles
-template: templates/articles/default
+template: articles/show
 layout: layout
 taxonomies:
   - tags

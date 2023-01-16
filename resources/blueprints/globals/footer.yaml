@@ -1,0 +1,34 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: copyright
+        field:
+          input_type: text
+          character_limit: 32
+          antlers: false
+          display: Copyright
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          validate:
+            - required
+            - string
+            - 'max:32'
+      -
+        handle: flair
+        field:
+          input_type: text
+          antlers: false
+          default: 'Made with ❤️ by me!'
+          display: Flair
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false

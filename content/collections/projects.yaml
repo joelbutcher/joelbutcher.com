@@ -1,5 +1,5 @@
 title: Projects
-template: default
+template: projects/index
 layout: layout
 mount: da818c0c-905a-4447-96bf-54e694710174
 revisions: false

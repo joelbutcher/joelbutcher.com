@@ -6,10 +6,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ title ?? site:name }}</title>
         {{ vite src="resources/css/tailwind.css|resources/js/site.js" }}
+        {{ livewire:styles }}
     </head>
-    <body class="font-sans leading-normal text-gray-800 bg-gray-100">
+    <body class="flex h-full flex-col bg-zinc-50 dark:bg-black font-sans">
+        <div class="fixed inset-0 flex justify-center sm:px-8">
+            <div class="flex w-full max-w-7xl lg:px-8">
+                <div class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"></div>
+            </div>
+        </div>
+
         {{ partial:partials/header }}
         {{ template_content }}
         {{  partial:partials/footer }}
     </body>
+
+    {{ livewire:scripts }}
 </html>

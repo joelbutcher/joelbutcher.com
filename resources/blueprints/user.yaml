@@ -1,29 +1,72 @@
 title: User
-fields:
-  -
-    handle: name
-    field:
-      type: text
-      display: Name
-  -
-    handle: email
-    field:
-      type: text
-      input: email
-      display: Email Address
-  -
-    handle: roles
-    field:
-      type: user_roles
-      width: 50
-  -
-    handle: groups
-    field:
-      type: user_groups
-      width: 50
-  -
-    handle: avatar
-    field:
-      type: assets
-      max_files: 1
-      container: assets
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: name
+        field:
+          type: text
+          display: Name
+      -
+        handle: email
+        field:
+          type: text
+          input: email
+          display: 'Email Address'
+      -
+        handle: roles
+        field:
+          type: user_roles
+          width: 50
+      -
+        handle: groups
+        field:
+          type: user_groups
+          width: 50
+      -
+        handle: avatar
+        field:
+          type: assets
+          max_files: 1
+          container: assets
+      -
+        handle: github
+        field:
+          display: GitHub
+          type: link
+          icon: link
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+      -
+        handle: linkedin
+        field:
+          display: LinkedIn
+          type: link
+          icon: link
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+      -
+        handle: twitter
+        field:
+          display: Twitter
+          type: link
+          icon: link
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+      -
+        handle: telegram
+        field:
+          display: Telegram
+          type: link
+          icon: link
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false

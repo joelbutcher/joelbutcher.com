@@ -1,0 +1,19 @@
+title: Profile
+data:
+  photo: images/cartoon.jpg
+  name: Joel
+  intro: "I'm Joel Butcher, I live in Lincoln in the UK."
+  description: |-
+    I currently work as a Software Engineer at Superscript 👨‍💻, the first UK InsuTech to become a Lloyd’s of London broker, they're transforming business insurance to meet the fast-changing needs of SMEs 📈.
+
+    I'm an avid technology enthusiast 🤓, always to keeping myself up-to-date on the current tech news & developments in my field. I'm a member of the Laravel community and an open source maintainer of [Socialstream](https://docs.socialstream.dev) - the missing Socialite integration for Laravel Jetstream .
+
+    In my spare time, I enjoy spending time with friends and family, you can often find me with my axe 🎸 in hand strumming along to The Eagles, AC/DC or Guns 'n' Roses (I have a broad music taste!).
+  work_url: 'https://gosuperscript.com'
+  work_place: Superscript
+  work_title: 'Software Engineer'
+  work_description: 'a company transforming the online business insurance landscape by using cutting-edge technology.'
+  linkedin: 'https://www.linkedin.com/in/joel-butcher'
+  github: 'https://github.com/joelbutcher'
+  twitter: 'https://twittetr.com/joelbutcher97'
+  telegram: 'https://t.me/joelbutcher'

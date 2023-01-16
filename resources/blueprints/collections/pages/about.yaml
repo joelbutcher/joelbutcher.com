@@ -15,19 +15,6 @@ sections:
         field:
           type: markdown
           localizable: true
-      -
-        handle: template
-        field:
-          hide_partials: true
-          blueprint: false
-          display: Template
-          type: template
-          icon: template
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-          folder: pages
   sidebar:
     display: Sidebar
     fields:
@@ -45,4 +32,19 @@ sections:
           max_items: 1
           listable: false
           localizable: true
-title: Page
+      -
+        handle: template
+        field:
+          hide_partials: true
+          blueprint: false
+          display: Template
+          type: template
+          icon: template
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          folder: pages
+          validate:
+            - required
+title: About
