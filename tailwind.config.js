@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: [
     './resources/**/*.antlers.html',
@@ -6,7 +8,11 @@ module.exports = {
     './content/**/*.md'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'serif': ['eb-garamond', ...defaultTheme.fontFamily.sans],
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),
