@@ -18,7 +18,9 @@
         "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.7",
         "league/flysystem-aws-s3-v3": "^3.0",
-        "statamic/cms": "3.3.*"
+        "simonhamp/statamic-heroicons": "^1.1",
+        "statamic/cms": "3.3.65",
+        "torchlight/torchlight-commonmark": "^0.5.5"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

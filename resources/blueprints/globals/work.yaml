@@ -1,0 +1,137 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: cv
+        field:
+          mode: list
+          container: cv
+          restrict: true
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: CV
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          validate:
+            - 'mimes:doc,docx,pdf'
+            - sometimes
+            - nullable
+      -
+        handle: jobs
+        field:
+          collapse: false
+          previews: true
+          sets:
+            job:
+              display: Job
+              fields:
+                -
+                  handle: image
+                  field:
+                    mode: list
+                    container: assets
+                    restrict: true
+                    allow_uploads: true
+                    show_filename: true
+                    max_files: 1
+                    display: Image
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                    folder: images
+                -
+                  handle: company
+                  field:
+                    input_type: text
+                    character_limit: 60
+                    antlers: false
+                    display: Company
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                    validate:
+                      - required
+                -
+                  handle: role
+                  field:
+                    input_type: text
+                    character_limit: 60
+                    antlers: false
+                    display: Role
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                    validate:
+                      - required
+                -
+                  handle: start_date
+                  field:
+                    mode: single
+                    format: 'M `y'
+                    earliest_date: '2018-01-01'
+                    time_enabled: false
+                    time_seconds_enabled: false
+                    full_width: false
+                    inline: false
+                    columns: 1
+                    rows: 1
+                    display: 'Start Date'
+                    type: date
+                    icon: date
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: current_workplace
+                  field:
+                    default: true
+                    display: 'Current Workplace'
+                    type: toggle
+                    icon: toggle
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: end_date
+                  field:
+                    mode: single
+                    format: 'M `y'
+                    time_enabled: false
+                    time_seconds_enabled: false
+                    full_width: false
+                    inline: false
+                    columns: 1
+                    rows: 1
+                    display: 'End Date'
+                    type: date
+                    icon: date
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                    unless:
+                      current_workplace: 'equals true'
+          display: Jobs
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false

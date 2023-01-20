@@ -4,10 +4,18 @@ roles:
   - admin
 groups:
   - admin
-avatar: images/cartoon.jpg
+avatar: profile_photos/cartoon.jpg
 github: 'https://github.com/joelbutcher'
 twitter: 'https://twittetr.com/joelbutcher97'
 telegram: 'https://t.me/joelbutcher'
 linkedin: 'https://www.linkedin.com/in/joel-butcher'
+links:
+  -
+    id: ld4r6vti
+    network: linkedin
+    text: 'Connect on LinkedIn'
+    url: 'https://www.linkedin.com/in/joel-butcher'
+    type: link
+    enabled: true
 id: 8335aa12-1c0a-4f6f-b6c7-ebc3b5c2574d
 password_hash: $2y$10$gSEo9hLJ1uc7hpUyz.GN/Od0Vaw6yGWj7oPzvt11KWBZA3tEBznVG

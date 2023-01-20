@@ -1,12 +1,22 @@
 ---
-id: 208db0be-1dd8-4616-a198-ed6848abb06c
-blueprint: blog_homepage
-title: Blog
-heading: 'Writing on software engineering, tutorials, tips & tricks.'
+id: 2b9896c8-5244-4155-83ba-e8d75f74d956
+blueprint: page
+title: Articles
 template: articles/index
 updated_by: 8335aa12-1c0a-4f6f-b6c7-ebc3b5c2574d
-updated_at: 1673891880
-articles:
-  - a56805fb-843a-4cec-afc6-c78a66bcdb15
+updated_at: 1674226342
+page_title: 'Writing about software engineering, tech and other musings.'
+content:
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: 'Welcome to my blog! I write tutorials, tips & tricks and aim to help other developers learn and refine their craft.'
+  -
+    type: paragraph
+    content:
+      -
+        type: text
+        text: "I also use this blog to document how I've overcome common problems, to give others a reference point for their issues."
 ---
-Welcome to my blog, where I like to post random ideas, thoughts, musings and sometimes (if you’re lucky) something helpful will appear on here. Whether it’s a Laravel article, how-to guide, or just random shit – enjoy!

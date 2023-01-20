@@ -1,0 +1,19 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: jobs
+        field:
+          max_items: 5
+          mode: default
+          create: true
+          collections:
+            - jobs
+          display: Jobs
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false

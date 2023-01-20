@@ -1,0 +1,12 @@
+title: Work
+data:
+  jobs:
+    -
+      id: ld4svbqn
+      image: images/superscript-logos-new-green-06.png
+      company: Superscript
+      role: 'Fullstack Engineer'
+      start_date: 'Jan `23'
+      current_workplace: true
+      type: job
+      enabled: true

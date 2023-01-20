@@ -12,18 +12,10 @@ sections:
         handle: email
         field:
           type: text
-          input: email
+          input_type: email
           display: 'Email Address'
-      -
-        handle: roles
-        field:
-          type: user_roles
-          width: 50
-      -
-        handle: groups
-        field:
-          type: user_groups
-          width: 50
+          listable: true
+          input: email
       -
         handle: avatar
         field:
@@ -66,6 +58,68 @@ sections:
           display: Telegram
           type: link
           icon: link
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+      -
+        handle: links
+        field:
+          collapse: false
+          previews: true
+          sets:
+            link:
+              display: Link
+              fields:
+                -
+                  handle: network
+                  field:
+                    options:
+                      twitter: Twitter
+                      linkedin: LinkedIn
+                      github: GitHub
+                      telegram: Telegram
+                      discord: Discord
+                      youtube: YouTube
+                      instagram: Instagram
+                    multiple: false
+                    clearable: false
+                    searchable: true
+                    taggable: false
+                    push_tags: false
+                    cast_booleans: false
+                    display: Network
+                    type: select
+                    icon: select
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: text
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Text
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: url
+                  field:
+                    display: URL
+                    type: link
+                    icon: link
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+          display: Links
+          type: replicator
+          icon: replicator
           listable: hidden
           instructions_position: above
           visibility: visible

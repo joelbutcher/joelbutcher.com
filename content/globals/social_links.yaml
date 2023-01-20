@@ -1,0 +1,38 @@
+title: 'Social Links'
+data:
+  links:
+    -
+      id: ld4rfr81
+      network: linkedin
+      text: 'Connect on LinkedIn'
+      url: 'https://www.linkedin.com/in/joel-butcher'
+      type: link
+      enabled: true
+    -
+      id: ld4rexv8
+      network: twitter
+      text: 'Follow on Twitter'
+      url: 'https://twitter.com/joelbutcher'
+      type: link
+      enabled: true
+    -
+      id: ld4rgtwt
+      network: github
+      text: 'Follow on GitHub'
+      url: 'https://github.com/joelbutcher'
+      type: link
+      enabled: true
+    -
+      id: ld4rh3tm
+      network: instagram
+      text: 'Follow on Instagram'
+      url: 'https://instagram.com/joel167897'
+      type: link
+      enabled: true
+    -
+      id: ld4rhjvq
+      network: telegram
+      text: 'Message on Telegram'
+      url: 'https://t.me/joelbutcher'
+      type: link
+      enabled: true

@@ -11,10 +11,17 @@ sections:
           validate:
             - required
       -
-        handle: content
+        handle: page_title
         field:
-          type: markdown
-          localizable: true
+          input_type: text
+          antlers: false
+          display: 'Page Title'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
       -
         handle: template
         field:
@@ -27,7 +34,39 @@ sections:
           instructions_position: above
           visibility: visible
           always_save: false
-          folder: pages
+      -
+        handle: content
+        field:
+          collapse: false
+          always_show_set_button: false
+          previews: true
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - removeformat
+            - anchor
+            - code
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: true
+          remove_empty_nodes: false
+          display: Content
+          type: bard
+          icon: bard
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
   sidebar:
     display: Sidebar
     fields:

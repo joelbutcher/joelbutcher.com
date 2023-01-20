@@ -4,24 +4,6 @@ sections:
     display: Main
     fields:
       -
-        handle: hero
-        field:
-          mode: grid
-          container: assets
-          restrict: false
-          allow_uploads: true
-          show_filename: true
-          max_files: 1
-          display: Hero
-          type: assets
-          icon: assets
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-          validate:
-            - image
-      -
         handle: title
         field:
           type: text
@@ -29,10 +11,10 @@ sections:
           validate:
             - required
       -
-        handle: preview
+        handle: excerpt
         field:
           antlers: false
-          display: Preview
+          display: Excerpt
           type: textarea
           icon: textarea
           listable: hidden
@@ -41,20 +23,95 @@ sections:
           always_save: false
           validate:
             - required
-            - string
-            - 'max:255'
+      -
+        handle: hero
+        field:
+          mode: grid
+          container: assets
+          restrict: true
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: 'Featured Image'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          validate:
+            - image
+          folder: images
       -
         handle: content
         field:
-          restrict: false
-          automatic_line_breaks: true
-          automatic_links: true
-          escape_markup: false
-          smartypants: true
+          collapse: false
+          always_show_set_button: false
+          previews: true
+          sets:
+            code_block:
+              display: 'Code Block'
+              fields:
+                -
+                  handle: code
+                  field:
+                    theme: material
+                    mode: htmlmixed
+                    mode_selectable: false
+                    indent_type: tabs
+                    indent_size: 4
+                    key_map: default
+                    line_numbers: true
+                    line_wrapping: true
+                    display: Code
+                    type: code
+                    icon: code
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: language
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Language
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - table
+            - strikethrough
+            - code
+            - horizontalrule
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
           antlers: false
+          remove_empty_nodes: false
           display: Content
-          type: markdown
-          icon: markdown
+          type: bard
+          icon: bard
           listable: hidden
           instructions_position: above
           visibility: visible
@@ -62,6 +119,23 @@ sections:
   sidebar:
     display: Sidebar
     fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+      -
+        handle: author
+        field:
+          max_items: 1
+          mode: select
+          display: Author
+          type: users
+          icon: users
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
       -
         handle: date
         field:
@@ -81,36 +155,40 @@ sections:
           columns: 1
           rows: 1
       -
-        handle: parent
+        handle: featured
         field:
-          type: entries
-          collections:
-            - articles
-          max_items: 1
-          listable: false
-          localizable: true
+          default: false
+          display: Featured
+          type: toggle
+          icon: toggle
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+  meta:
+    display: Meta
+    fields:
       -
-        handle: tags
+        handle: meta_title
         field:
-          type: terms
-          taxonomies:
-            - tags
-          display: tags
-          mode: select
+          input_type: text
+          character_limit: 60
+          antlers: false
+          display: 'Meta Title'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
       -
-        handle: slug
+        handle: meta_description
         field:
-          type: slug
-          localizable: true
-      -
-        handle: template
-        field:
-          hide_partials: true
-          blueprint: false
-          folder: articles
-          display: Template
-          type: template
-          icon: template
+          character_limit: '160'
+          antlers: false
+          display: 'Meta Description'
+          type: textarea
+          icon: textarea
           listable: hidden
           instructions_position: above
           visibility: visible
