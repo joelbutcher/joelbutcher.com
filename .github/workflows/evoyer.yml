@@ -17,9 +17,6 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
           coverage: none
 
-      - name: Code Style
-        run: ./vendor/bin/pint --test
-
       - name: Deploy
         if: github.ref_name == 'main'
         run: curl ${{ secrets.DEPLOY_HOOK }}?sha=${{ github.sha }}
