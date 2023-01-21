@@ -49,39 +49,15 @@ sections:
           always_show_set_button: false
           previews: true
           sets:
-            code_block:
-              display: 'Code Block'
+            new_set:
+              display: 'New Set'
               fields:
                 -
                   handle: code
-                  field:
-                    theme: material
-                    mode: htmlmixed
-                    mode_selectable: false
-                    indent_type: tabs
-                    indent_size: 4
-                    key_map: default
-                    line_numbers: true
-                    line_wrapping: true
-                    display: Code
-                    type: code
-                    icon: code
-                    listable: hidden
-                    instructions_position: above
-                    visibility: visible
-                    always_save: false
+                  field: code_block.code
                 -
                   handle: language
-                  field:
-                    input_type: text
-                    antlers: false
-                    display: Language
-                    type: text
-                    icon: text
-                    listable: hidden
-                    instructions_position: above
-                    visibility: visible
-                    always_save: false
+                  field: code_block.language
           buttons:
             - h2
             - h3
@@ -97,6 +73,8 @@ sections:
             - strikethrough
             - code
             - horizontalrule
+            - h4
+            - underline
           save_html: false
           toolbar_mode: fixed
           link_noopener: false
@@ -165,31 +143,8 @@ sections:
           instructions_position: above
           visibility: visible
           always_save: false
-  meta:
-    display: Meta
+  seo:
+    display: SEO
     fields:
       -
-        handle: meta_title
-        field:
-          input_type: text
-          character_limit: 60
-          antlers: false
-          display: 'Meta Title'
-          type: text
-          icon: text
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-      -
-        handle: meta_description
-        field:
-          character_limit: '160'
-          antlers: false
-          display: 'Meta Description'
-          type: textarea
-          icon: textarea
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
+        import: metatags

@@ -1,0 +1,779 @@
+title: metatags
+fields:
+  -
+    handle: basic
+    field:
+      display: 'Basic Meta tags'
+      type: section
+  -
+    handle: basic_title
+    field:
+      display: 'Page title'
+      instructions: "The text to display in the title bar of a visitor's web browser when they view this page. This meta tag may also be used as the title of the page when a visitor bookmarks or favorites this page, or as the page title in a search engine result. It is recommended that the title be no greater than 55 - 65 characters long, including spaces."
+      type: text
+  -
+    handle: basic_description
+    field:
+      display: Description
+      instructions: "A brief and concise summary of the page's content, preferably 150 characters or less. Where as the description meta tag may be used by search engines to display a snippet about the page in search results."
+      type: textarea
+  -
+    handle: basic_keywords
+    field:
+      display: Keywords
+      instructions: 'A comma-separated list of keywords about the page. This meta tag is <em>no longer</em> supported by most search engines anymore.'
+      type: taggable
+  -
+    handle: basic_robots
+    field:
+      display: Robots
+      instructions: 'Provides search engines with specific directions for what to do when this page is indexed.'
+      options:
+        - noindex
+        - nofollow
+        - noarchive
+        - nosnippet
+        - noodp
+        - noydir
+        - noimageindex
+        - notranslate
+      multiple: true
+      clearable: true
+      type: select
+  -
+    handle: advanced
+    field:
+      display: 'Advanced Meta tags'
+      type: section
+  -
+    handle: advanced_author
+    field:
+      display: Author
+      instructions: 'Author(s) of the web page. Little used though an official part of the <a href="https://www.w3.org/TR/html52/document-metadata.html#author" target="_blank">HTML 5.2 specification</a>.'
+      type: text
+  -
+    handle: advanced_generator
+    field:
+      display: Generator
+      instructions: 'Describes the name and version number of the software or publishing tool used to create the page.'
+      type: text
+  -
+    handle: advanced_image
+    field:
+      display: Image
+      instructions: 'An image associated with this page, for use as a thumbnail in social networks and other services.'
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      max_files: 1
+      type: assets
+  -
+    handle: advanced_rights
+    field:
+      display: Rights
+      instructions: "Details about intellectual property, such as copyright or trademarks. Does not automatically protect the site's content or intellectual property."
+      type: text
+  -
+    handle: advanced_rating
+    field:
+      display: 'Content rating'
+      instructions: 'Used to indicate the intended audience for the content.'
+      options:
+        general: General
+        mature: Mature
+        restricted: Restricted
+        '14 years': '14 years or Older'
+        'safe for kids': 'Safe for kids'
+      clearable: true
+      type: select
+  -
+    handle: advanced_referrer
+    field:
+      display: 'Referrer policy'
+      instructions: 'ndicate to search engines and other page scrapers whether or not links should be followed. See the <a href="http://w3c.github.io/webappsec/specs/referrer-policy/" target="_blank">W3C specifications</a> for further details.'
+      options:
+        no-referrer: 'No Referrer'
+        origin: Origin
+        no-referrer-when-downgrade: 'No Referrer When Downgrade'
+        origin-when-cross-origin: 'Origin When Cross-Origin'
+        unsafe-url: 'Unsafe URL'
+      clearable: true
+      type: select
+  -
+    handle: advanced_canonical
+    field:
+      display: 'Canonical URL'
+      instructions: 'The URl of the preferred page location or URL of the content of this page, to help eliminate duplicate content penalties from search engines. Leave empty for getting current page URL.'
+      type: text
+  -
+    handle: advanced_short_link
+    field:
+      display: 'Short link'
+      instructions: 'A brief URL, often created by a URL shortening service.'
+      type: text
+      input_type: url
+  -
+    handle: advanced_original_source
+    field:
+      display: 'Original source'
+      instructions: 'Used to indicate the URL that broke the story, and can link to either an internal URL or an external source. If the full URL is not known it is acceptable to use a partial URL or just the domain name.'
+      type: text
+  -
+    handle: advanced_geo_position
+    field:
+      display: 'Geo position'
+      instructions: 'Geo-spatial information in "latitude;longitude" format, e.g. "50.167958;-97.133185"; see <a href="http://en.wikipedia.org/wiki/Geotagging#HTML_pages" target="_blank">Wikipedia</a> for details.'
+      type: text
+  -
+    handle: advanced_geo_placename
+    field:
+      display: 'Geo place name'
+      instructions: "A location's formal name."
+      type: text
+  -
+    handle: advanced_geo_region
+    field:
+      display: 'Geo region'
+      instructions: 'A location''s two-letter international country code, with an optional two-letter region, e.g. "US-NH" for New Hampshire in the USA.'
+      type: text
+  -
+    handle: advanced_icbm
+    field:
+      display: ICBM
+      instructions: 'Geo-spatial information in "latitude, longitude" format, e.g. "50.167958, -97.133185"; see <a href="https://en.wikipedia.org/wiki/ICBM_address" target="_blank">Wikipedia</a> for details.'
+      type: text
+  -
+    handle: advanced_refresh
+    field:
+      display: Refresh
+      instructions: 'The number of seconds to wait before refreshing the page. May also force redirect to another page using the format <code>5; url=http://example.com/</code>, which would be triggered after five seconds.'
+      type: text
+  -
+    handle: og
+    field:
+      display: 'Open Graph'
+      type: section
+  -
+    handle: og_type
+    field:
+      display: 'Content type'
+      instructions: 'The type of the content, e.g., <em>movie</em>.'
+      options:
+        article: Article
+        book: Book
+        music.song: Song
+        music.album: Album
+        music.playlist: Playlist
+        music.radio_station: 'Radio station'
+        product: Product
+        profile: Profile
+        video.movie: Movie
+        video.tv_show: 'TV show'
+        video.episode: 'TV show episode'
+        video.other: 'Miscellaneous video'
+        website: Website
+      clearable: true
+      searchable: true
+      type: select
+  -
+    handle: og_title
+    field:
+      display: 'Content title'
+      instructions: 'The title of the content, e.g., <em>The Rock</em>.'
+      type: text
+  -
+    handle: og_image
+    field:
+      display: Image
+      instructions: 'The URL of an image which should represent the content. The image must be at least 200 x 200 pixels in size; 600 x 316 pixels is a recommended minimum size, and for best results use an image least 1200 x 630 pixels in size. Supports PNG, JPEG and GIF formats.'
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      type: assets
+  -
+    handle: og_audio
+    field:
+      display: Audio
+      instructions: 'The URL to an audio file that complements this object.'
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      type: assets
+  -
+    handle: og_video
+    field:
+      display: Video
+      instructions: 'The URL to a video file that complements this object.'
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      type: assets
+  -
+    handle: og_determiner
+    field:
+      display: 'Content title determiner'
+      instructions: "The word that appears before the content's title in a sentence. The default ignores this value, the 'Automatic' value should be sufficient if this is actually needed."
+      options:
+        auto: Auto
+        a: A
+        an: An
+        the: The
+      clearable: true
+      type: select
+  -
+    handle: og_description
+    field:
+      display: 'Content description'
+      instructions: 'A one to two sentence description of the content.'
+      type: textarea
+  -
+    handle: og_locale_alternate
+    field:
+      display: 'Locale alternate'
+      instructions: 'Other locales this content is available in, must be in the format <em>language_TERRITORY</em>, e.g. <code>fr_FR</code>. Multiple values may be used, separated by a comma.'
+      type: text
+  -
+    handle: og_article_author
+    field:
+      display: 'Article author'
+      instructions: "Links an article to an author's Facebook profile, should be either URLs to the author's profile page or their Facebook profile IDs. Multiple values may be used, separated by a comma."
+      type: taggable
+      if:
+        og_type: 'equals article'
+  -
+    handle: og_article_section
+    field:
+      display: 'Article section'
+      instructions: 'The primary section of this website the content belongs to.'
+      type: text
+      if:
+        og_type: 'equals article'
+  -
+    handle: og_article_tag
+    field:
+      display: 'Article tag(s)'
+      instructions: 'Appropriate keywords for this content. Multiple values may be used.'
+      type: taggable
+      if:
+        og_type: 'equals article'
+  -
+    handle: og_article_published_time
+    field:
+      display: 'Article publication date & time'
+      instructions: 'The date this content was published on, with an optional time value.'
+      time_enabled: true
+      type: date
+      if:
+        og_type: 'equals article'
+  -
+    handle: og_article_modified_time
+    field:
+      display: 'Article modification date & time'
+      instructions: 'The date this content was last modified, with an optional time value.'
+      time_enabled: true
+      type: date
+      if:
+        og_type: 'equals article'
+  -
+    handle: og_article_expiration_time
+    field:
+      display: 'Article expiration date & time'
+      instructions: 'The date this content will expire, with an optional time value.'
+      time_enabled: true
+      type: date
+      if:
+        og_type: 'equals article'
+  -
+    handle: og_video_actor
+    field:
+      display: Actor(s)
+      instructions: 'Links to the Facebook profiles for actor(s) that appear in the video. Multiple values may be used.'
+      type: taggable
+      if:
+        og_type: 'contains video.'
+  -
+    handle: og_video_actor_role
+    field:
+      display: "Actors' role"
+      instructions: 'The roles of the actor(s). Multiple values may be used.'
+      type: taggable
+      if:
+        og_type: 'contains video.'
+  -
+    handle: og_video_director
+    field:
+      display: Director(s)
+      instructions: 'Links to the Facebook profiles for director(s) that worked on the video. Multiple values may be used.'
+      type: taggable
+      if:
+        og_type: 'contains video.'
+  -
+    handle: og_video_writer
+    field:
+      display: Scriptwriter(s)
+      instructions: 'Links to the Facebook profiles for scriptwriter(s) for the video. Multiple values may be used.'
+      type: taggable
+      if:
+        og_type: 'contains video.'
+  -
+    handle: og_video_duration
+    field:
+      display: 'Video duration (seconds)'
+      instructions: 'The length of the video in seconds.'
+      input_type: number
+      type: text
+      if:
+        og_type: 'contains video.'
+  -
+    handle: og_video_release_date
+    field:
+      display: 'Release date'
+      instructions: 'The date the video was released.'
+      time_enabled: false
+      type: date
+      if:
+        og_type: 'contains video.'
+  -
+    handle: og_video_tag
+    field:
+      display: Tag
+      instructions: 'Tag words associated with this video. Multiple values may be used.'
+      type: taggable
+      if:
+        og_type: 'contains video.'
+  -
+    handle: og_video_series
+    field:
+      display: Series
+      instructions: 'Which series this episode belongs to.'
+      type: text
+      if:
+        og_type: 'equals video.episode'
+  -
+    handle: og_book_author
+    field:
+      display: Author(s)
+      instructions: 'Who wrote this book. Multiple values may be used.'
+      type: taggable
+      if:
+        og_type: 'equals book'
+  -
+    handle: og_book_isbn
+    field:
+      display: ISBN
+      instructions: 'The ISBN of the book.'
+      type: text
+      if:
+        og_type: 'equals book'
+  -
+    handle: og_book_release_date
+    field:
+      display: 'Release date'
+      instructions: 'The date the book was released.'
+      time_enabled: false
+      type: date
+      if:
+        og_type: 'equals book'
+  -
+    handle: og_book_tag
+    field:
+      display: Tag
+      instructions: 'Tag words associated with this book. Multiple values may be used.'
+      type: taggable
+      if:
+        og_type: 'equals book'
+  -
+    handle: og_profile_first_name
+    field:
+      display: 'First name'
+      instructions: 'A name normally given to an individual by a parent or self-chosen.'
+      type: text
+      if:
+        og_type: 'equals profile'
+  -
+    handle: og_profile_last_name
+    field:
+      display: 'Last name'
+      instructions: 'A name inherited from a family or marriage and by which the individual is commonly known.'
+      type: text
+      if:
+        og_type: 'equals profile'
+  -
+    handle: og_profile_username
+    field:
+      display: Username
+      instructions: 'A short unique string to identify them.'
+      type: text
+      if:
+        og_type: 'equals profile'
+  -
+    handle: og_profile_gender
+    field:
+      display: Gender
+      instructions: 'Their gender.'
+      options:
+        male: Male
+        female: Female
+      clearable: true
+      type: select
+      if:
+        og_type: 'equals profile'
+  -
+    handle: og_product_plural_title
+    field:
+      display: 'Plural title'
+      instructions: 'Title of the product when a quantity more than 1 is purchased.'
+      type: text
+      if:
+        og_type: 'equals product'
+  -
+    handle: og_product_price_amount
+    field:
+      display: 'Price amount'
+      instructions: 'A decimal number with a  as the decimal separator. Values less than 0.01 are not supported.'
+      type: taggable
+      if:
+        og_type: 'equals product'
+  -
+    handle: og_product_price_currency
+    field:
+      display: Currency
+      instructions: 'Currency is a string representing the ISO-4217-3 currency code.'
+      type: taggable
+      if:
+        og_type: 'equals product'
+  -
+    handle: og_music_duration
+    field:
+      display: 'Music duration'
+      instructions: "The song's length in seconds."
+      type: text
+      input_type: number
+      if:
+        og_type: 'contains music.'
+  -
+    handle: og_music_album
+    field:
+      display: Album
+      instructions: 'The album this song is from.'
+      type: taggable
+      if:
+        og_type: 'contains music.'
+  -
+    handle: og_music_album_disc
+    field:
+      display: Disc
+      instructions: 'Which disc of the album this song is on.'
+      type: text
+      input_type: number
+      if:
+        og_type: 'contains music.'
+  -
+    handle: og_music_album_track
+    field:
+      display: Track
+      instructions: 'Which track this song is.'
+      type: text
+      input_type: number
+      if:
+        og_type: 'contains music.'
+  -
+    handle: og_music_musician
+    field:
+      display: Musician
+      instructions: 'The musician that made this song.'
+      type: taggable
+      if:
+        og_type: 'contains music.'
+  -
+    handle: og_music_song
+    field:
+      display: Song
+      instructions: 'The song on this album.'
+      type: text
+      if:
+        og_type: 'contains music.'
+  -
+    handle: og_music_song_disc
+    field:
+      display: Disc
+      instructions: 'The same as <code>music:album:disc</code> but in reverse.'
+      type: text
+      input_type: number
+      if:
+        og_type: 'contains music.'
+  -
+    handle: og_music_song_track
+    field:
+      display: Track
+      instructions: 'The same as <code>music:album:track</code> but in reverse.'
+      type: text
+      input_type: number
+      if:
+        og_type: 'contains music.'
+  -
+    handle: og_music_release_date
+    field:
+      display: 'Release date'
+      instructions: 'The date the album was released.'
+      time_enabled: false
+      type: date
+      if:
+        og_type: 'contains music.'
+  -
+    handle: og_music_creator
+    field:
+      display: 'Music creator'
+      instructions: 'The creator of this playlist.'
+      type: text
+      if:
+        og_type: 'contains music.'
+  -
+    handle: twitter
+    field:
+      display: Twitter
+      type: section
+  -
+    handle: twitter_type
+    field:
+      display: 'Card type'
+      instructions: 'The card type.'
+      options:
+        summary: Summary
+        summary_large_image: 'Summary with large image'
+        app: App
+        player: Player
+      clearable: true
+      searchable: true
+      type: select
+  -
+    handle: twitter_site
+    field:
+      display: Site
+      instructions: '@username of website.'
+      type: text
+  -
+    handle: twitter_site_id
+    field:
+      display: 'Site ID'
+      instructions: "Same as Site, but the user's Twitter ID."
+      type: text
+      if:
+        twitter_type: 'not app'
+  -
+    handle: twitter_creator
+    field:
+      display: Creator
+      instructions: '@username of content creator.'
+      type: text
+      if:
+        twitter_type: 'equals summary_large_image'
+  -
+    handle: twitter_creator_id
+    field:
+      display: 'Creator ID'
+      instructions: 'Twitter user ID of content creator.'
+      type: text
+  -
+    handle: twitter_description
+    field:
+      display: 'Content description'
+      instructions: 'Description of content (maximum 200 characters).'
+      type: textarea
+      if:
+        twitter_type: 'not app'
+  -
+    handle: twitter_title
+    field:
+      display: 'Content title'
+      instructions: 'Title of content (max 70 characters).'
+      type: text
+      if:
+        twitter_type: 'not app'
+  -
+    handle: twitter_image
+    field:
+      display: Image
+      instructions: 'URL of image to use in the card. Images must be less than 5MB in size. <code>JPG</code>, <code>PNG</code>, <code>WEBP</code> and <code>GIF</code> formats are supported. Only the first frame of an animated GIF will be used. <strong><code>SVG</code> is not supported</strong>.'
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      type: assets
+      max_files: 1
+      if:
+        twitter_type: 'not app'
+  -
+    handle: twitter_player
+    field:
+      display: 'Player URL'
+      instructions: 'HTTPS URL of player iframe.'
+      type: text
+      input_type: url
+      if:
+        twitter_type: 'equals player'
+  -
+    handle: twitter_player_width
+    field:
+      display: 'Player width'
+      instructions: 'Width of iframe in pixels.'
+      type: text
+      input_type: number
+      if:
+        twitter_type: 'equals player'
+  -
+    handle: twitter_player_height
+    field:
+      display: 'Player height'
+      instructions: 'Height of iframe in pixels.'
+      type: text
+      input_type: number
+      if:
+        twitter_type: 'equals player'
+  -
+    handle: twitter_player_stream
+    field:
+      display: 'Player stream'
+      instructions: 'URL to raw video or audio stream.'
+      type: text
+      input_type: url
+      if:
+        twitter_type: 'equals player'
+  -
+    handle: twitter_app_name_iphone
+    field:
+      display: 'iPhone app name'
+      instructions: 'Name of your iPhone app.'
+      type: text
+      if:
+        twitter_type: 'equals app'
+  -
+    handle: twitter_app_id_iphone
+    field:
+      display: 'iPhone app ID'
+      instructions: 'Your app ID in the iTunes App Store (Note: NOT your bundle ID).'
+      type: text
+      if:
+        twitter_type: 'equals app'
+  -
+    handle: twitter_app_url_iphone
+    field:
+      display: 'iPhone app URL'
+      instructions: 'Your app''s custom URL scheme (you must include "://" after your scheme name).'
+      type: text
+      if:
+        twitter_type: 'equals app'
+  -
+    handle: twitter_app_name_ipad
+    field:
+      display: 'iPad app name'
+      instructions: 'Name of your iPad app.'
+      type: text
+      if:
+        twitter_type: 'equals app'
+  -
+    handle: twitter_app_id_ipad
+    field:
+      display: 'iPad app ID'
+      instructions: 'Your app ID in the iTunes App Store (Note: NOT your bundle ID).'
+      type: text
+      if:
+        twitter_type: 'equals app'
+  -
+    handle: twitter_app_url_ipad
+    field:
+      display: 'iPad app URL'
+      instructions: 'Your app''s custom URL scheme (you must include "://" after your scheme name).'
+      type: text
+      if:
+        twitter_type: 'equals app'
+  -
+    handle: twitter_app_name_googleplay
+    field:
+      display: 'Android app name'
+      instructions: 'Name of your Android app.'
+      type: text
+      if:
+        twitter_type: 'equals app'
+  -
+    handle: twitter_app_id_googleplay
+    field:
+      display: 'Android app ID'
+      instructions: 'Your app ID in the Google Play Store.'
+      type: text
+      if:
+        twitter_type: 'equals app'
+  -
+    handle: twitter_app_url_googleplay
+    field:
+      display: 'Android app URL'
+      instructions: "Your app's custom URL scheme."
+      type: text
+      if:
+        twitter_type: 'equals app'
+  -
+    handle: favicons
+    field:
+      display: Favicons
+      type: section
+  -
+    handle: favicons_mask_icon
+    field:
+      display: 'SVG icon'
+      instructions: 'A grayscale SVG file.'
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      max_files: 1
+      type: assets
+      width: 66
+  -
+    handle: favicons_mask_icon_color
+    field:
+      display: 'SVG icon color'
+      instructions: 'Provides a color for the SVG icon.'
+      type: color
+      theme: nano
+      lock_opacity: true
+      default_color_mode: HEXA
+      color_modes:
+        - HEX
+      width: 33
+  -
+    handle: favicons_apple_touch_icon
+    field:
+      display: 'Apple touch icon'
+      instructions: 'A PNG image that is 180px wide by 180px high.'
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      max_files: 1
+      type: assets
+  -
+    handle: favicons_icon_16
+    field:
+      display: 'Icon (16x16)'
+      instructions: 'A PNG image that is 16px wide by 16px high.'
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      max_files: 1
+      type: assets
+  -
+    handle: favicons_icon_32
+    field:
+      display: 'Icon (32x32)'
+      instructions: 'A PNG image that is 32px wide by 32px high.'
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      max_files: 1
+      type: assets

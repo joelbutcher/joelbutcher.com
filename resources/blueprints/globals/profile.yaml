@@ -3,49 +3,17 @@ sections:
     display: Work
     fields:
       -
-        handle: work_title
+        handle: photo
         field:
-          input_type: text
-          character_limit: 60
-          antlers: false
-          display: 'Work Title'
-          type: text
-          icon: text
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-      -
-        handle: workplace
-        field:
-          input_type: text
-          character_limit: 60
-          antlers: false
-          display: Workplace
-          type: text
-          icon: text
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-      -
-        handle: work_description
-        field:
-          input_type: text
-          antlers: false
-          display: 'Work Description'
-          type: text
-          icon: text
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-      -
-        handle: work_link
-        field:
-          display: 'Work Link'
-          type: link
-          icon: link
+          mode: list
+          container: assets
+          folder: profile_photos
+          restrict: true
+          allow_uploads: true
+          show_filename: true
+          display: Photo
+          type: assets
+          icon: assets
           listable: hidden
           instructions_position: above
           visibility: visible

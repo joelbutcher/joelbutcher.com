@@ -6,7 +6,7 @@ sections:
         handle: cv
         field:
           mode: list
-          container: cv
+          container: assets
           restrict: true
           allow_uploads: true
           show_filename: true
@@ -47,7 +47,6 @@ sections:
                     instructions_position: above
                     visibility: visible
                     always_save: false
-                    folder: images
                 -
                   handle: company
                   field:

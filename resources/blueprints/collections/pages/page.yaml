@@ -11,11 +11,11 @@ sections:
           validate:
             - required
       -
-        handle: page_title
+        handle: intro
         field:
           input_type: text
           antlers: false
-          display: 'Page Title'
+          display: Intro
           type: text
           icon: text
           listable: hidden
@@ -41,10 +41,10 @@ sections:
           always_show_set_button: false
           previews: true
           buttons:
-            - h2
-            - h3
             - bold
             - italic
+            - underline
+            - strikethrough
             - removeformat
             - anchor
             - code
@@ -67,6 +67,12 @@ sections:
           instructions_position: above
           visibility: visible
           always_save: false
+          sets:
+            code_block:
+              display: 'Code Block'
+              fields:
+                -
+                  import: code_block
   sidebar:
     display: Sidebar
     fields:
@@ -84,4 +90,9 @@ sections:
           max_items: 1
           listable: false
           localizable: true
+  seo:
+    display: SEO
+    fields:
+      -
+        import: metatags
 title: Page

@@ -4,7 +4,7 @@ roles:
   - admin
 groups:
   - admin
-avatar: profile_photos/cartoon.jpg
+avatar: avatar.jpg
 github: 'https://github.com/joelbutcher'
 twitter: 'https://twittetr.com/joelbutcher97'
 telegram: 'https://t.me/joelbutcher'

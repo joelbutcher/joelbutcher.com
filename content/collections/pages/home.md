@@ -7,7 +7,7 @@ articles:
   - a56805fb-843a-4cec-afc6-c78a66bcdb15
 updated_by: 8335aa12-1c0a-4f6f-b6c7-ebc3b5c2574d
 updated_at: 1674150402
-page_title: 'Software Engineer, Technical Writer, and Community Advocate.'
+intro: 'Software Engineer, Technical Writer, and Community Advocate.'
 content:
   -
     type: paragraph

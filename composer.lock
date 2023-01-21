@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a14a03c282adc07e3e9a40c137427700",
+    "content-hash": "5a134ff7d9c9194dfabfa6d2eadbcb42",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -1571,6 +1571,55 @@
                 }
             ],
             "time": "2022-02-20T15:07:15+00:00"
+        },
+        {
+            "name": "gioppy/statamic-metatags",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gioppy/statamic-metatags.git",
+                "reference": "8524c7fb3f2c41525145796990464252413e5e0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gioppy/statamic-metatags/zipball/8524c7fb3f2c41525145796990464252413e5e0c",
+                "reference": "8524c7fb3f2c41525145796990464252413e5e0c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8.0",
+                "statamic/cms": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "statamic": {
+                    "name": "Meta tags",
+                    "description": "An addon for Statamic 3 to manage and customize any meta tag."
+                },
+                "laravel": {
+                    "providers": [
+                        "Gioppy\\StatamicMetatags\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Gioppy\\StatamicMetatags\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Giovanni Buffa",
+                    "email": "tech@giovannibuffa.it"
+                }
+            ],
+            "description": "An addon for Statamic 3 to manage and customize any meta tag.",
+            "support": {
+                "issues": "https://github.com/gioppy/statamic-metatags/issues",
+                "source": "https://github.com/gioppy/statamic-metatags/tree/2.0.1"
+            },
+            "time": "2023-01-02T21:21:35+00:00"
         },
         {
             "name": "graham-campbell/result-type",

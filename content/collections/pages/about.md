@@ -42,8 +42,8 @@ links:
     type: link
     enabled: true
 updated_by: 8335aa12-1c0a-4f6f-b6c7-ebc3b5c2574d
-updated_at: 1674230596
-profile_photo: images/19c641b0-3ba5-4707-a177-4d2b20460e02.JPG
+updated_at: 1674248806
+profile_photo: profile.JPG
 content:
   -
     type: paragraph
