@@ -11,11 +11,11 @@
                         </div>
 
                         <div class="lg:order-first lg:row-span-2">
-                            <h1 class="text-4xl font-serif font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                            <h1 class="text-4xl  font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                                 {{ intro }}
                             </h1>
 
-                            <div class="mt-6 space-y-7 text-base prose dark:prose-invert">
+                            <div class="text-lg prose dark:prose-invert my-6">
                                 {{ content }}
                                     {{ partial src="sets/{type}" }}
                                 {{ /content }}
@@ -24,13 +24,13 @@
                         <div class="lg:pl-20">
                             <ul role="list">
                                 {{ links }}
-                                    {{ partial:partials/social-link }}
+                                    {{ partial src="social-link" }}
                                 {{ /links }}
 
                                 {{ if email_address }}
                                     <li class="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40 flex">
                                         <a href="mailto:{{ email_address }}" class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500">
-                                            {{ partial:partials/icons/email }}
+                                            {{ partial src="icons/email" }}
                                             <span class="ml-4">
                                                 {{ email_address }}
                                             </span>

@@ -5,12 +5,21 @@ title: Projects
 intro: "Packages and projects I've worked on over time."
 template: projects/index
 updated_by: 8335aa12-1c0a-4f6f-b6c7-ebc3b5c2574d
-updated_at: 1674252553
+updated_at: 1674339814
 content:
   -
     type: paragraph
     content:
       -
         type: text
-        text: 'I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved.'
+        text: 'A lot of the stuff I work on outside of my job aims to better the development experience of the Laravel & PHP communities. Usually, this is done by building and maintaining open-source packages. Below is a list of the projects I am most proud of (except the '
+      -
+        type: text
+        marks:
+          -
+            type: code
+        text: dotfiles
+      -
+        type: text
+        text: " repo, that's just in case you want to know what my typical development setup looks like 😝"
 ---

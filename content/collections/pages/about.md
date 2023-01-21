@@ -4,7 +4,7 @@ blueprint: profile
 title: About
 intro: "I'm Joel Butcher, a Software Engineer from Lincoln."
 template: pages/profile
-email_address: joel@joelbutcher.co.uk
+email_address: hello@joelbutcher.com
 links:
   -
     id: ld4pfh3l
@@ -42,7 +42,7 @@ links:
     type: link
     enabled: true
 updated_by: 8335aa12-1c0a-4f6f-b6c7-ebc3b5c2574d
-updated_at: 1674248806
+updated_at: 1674260756
 profile_photo: profile.JPG
 content:
   -

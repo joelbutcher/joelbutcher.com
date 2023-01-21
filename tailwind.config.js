@@ -27,9 +27,6 @@ module.exports = {
                 color: theme('colors.zinc.400'),
               },
             },
-            h1: {
-              fontFamily: theme('fontFamily.serif').join(', '),
-            },
             'h1, h2': {
               color: theme('colors.black'),
               fontWeight: 'bold',

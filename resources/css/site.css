@@ -1,2 +1,10 @@
 /* This is all you. */
 @import 'https://use.typekit.net/zyp3oyu.css';
+
+body {
+    @apply font-sans;
+}
+
+h1 {
+    @apply font-serif;
+}

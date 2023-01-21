@@ -38,7 +38,7 @@ sections:
           visibility: visible
           always_save: false
       -
-        handle: url
+        handle: project_url
         field:
           display: URL
           type: link
@@ -59,6 +59,16 @@ sections:
           instructions_position: above
           visibility: visible
           always_save: false
+      -
+        handle: order
+        field:
+          display: Order
+          type: integer
+          icon: integer
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
   sidebar:
     display: Sidebar
     fields:
@@ -66,7 +76,11 @@ sections:
         handle: date
         field:
           type: date
-          required: true
           validate:
             - required
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
 title: Project

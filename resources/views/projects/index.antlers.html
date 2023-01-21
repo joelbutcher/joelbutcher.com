@@ -3,11 +3,11 @@
         <div class="relative px-4 sm:px-8 lg:px-12">
             <div class="mx-auto max-w-2xl lg:max-w-5xl">
                 <header class="max-w-2xl">
-                    <h1 class="text-4xl font-serif font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                    <h1 class="text-4xl  font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                         {{ intro }}
                     </h1>
 
-                    <div class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                    <div class="text-lg prose dark:prose-invert my-6">
                         {{ content }}
                             {{ partial src="sets/{type}" }}
                         {{ /content }}
@@ -16,9 +16,9 @@
 
                 <div class="mt-16 sm:mt-20">
                     <ul role="list" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-                        {{ projects }}
+                        {{ collection:projects sort="order" }}
                             {{ partial src="project" }}
-                        {{ /projects }}
+                        {{ /collection:projects }}
                     </ul>
                 </div>
             </div>
