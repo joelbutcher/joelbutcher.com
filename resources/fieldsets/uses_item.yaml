@@ -1,0 +1,48 @@
+title: 'Uses Item'
+fields:
+  -
+    handle: category
+    field:
+      options:
+        workstation: Workstation
+        tooling: Tooling
+        services: Services
+        productivity: Productivity
+      multiple: false
+      max_items: 1
+      clearable: false
+      searchable: true
+      taggable: true
+      push_tags: false
+      cast_booleans: false
+      display: Category
+      type: select
+      icon: select
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: description
+    field:
+      antlers: false
+      display: Description
+      type: textarea
+      icon: textarea
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: order
+    field:
+      default: '0'
+      display: Order
+      type: integer
+      icon: integer
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      validate:
+        - required
