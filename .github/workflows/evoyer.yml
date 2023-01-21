@@ -17,6 +17,10 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
           coverage: none
 
+      - name: Deploy Staging
+        if: github.ref_name == 'main'
+        run: curl ${{ secrets.DEPLOY_HOOK_STAGE }}?sha=${{ github.sha }}
+
       - name: Deploy
         if: github.ref_name == 'main'
         run: curl ${{ secrets.DEPLOY_HOOK }}?sha=${{ github.sha }}
