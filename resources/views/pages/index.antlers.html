@@ -38,7 +38,11 @@
                     <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2 mt-12">
                         <div class="flex flex-col gap-16">
                             {{ collection:articles featured:is="true" limit="3" }}
-                                {{ partial src="articles/excerpt" }}
+                                {{ if no_results }}
+                                    <p class="text-zinc-400 dark:text-zinc-500">No results</p>
+                                {{ else }}
+                                    {{ partial src="articles/excerpt" }}
+                                {{ /if }}
                             {{ /collection:articles }}
                         </div>
                         <div class="space-y-10 lg:pl-16 xl:pl-24">

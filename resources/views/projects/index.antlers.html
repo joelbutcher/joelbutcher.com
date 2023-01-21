@@ -17,7 +17,11 @@
                 <div class="mt-16 sm:mt-20">
                     <ul role="list" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
                         {{ collection:projects sort="order" }}
-                            {{ partial src="project" }}
+                            {{ if no_results }}
+                                <p class="text-zinc-400 dark:text-zinc-500">No results</p>
+                            {{ else }}
+                                {{ partial src="project" }}
+                            {{ /if }}
                         {{ /collection:projects }}
                     </ul>
                 </div>

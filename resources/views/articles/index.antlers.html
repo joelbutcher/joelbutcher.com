@@ -18,7 +18,11 @@
                     <div class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
                         <div class="flex max-w-3xl flex-col space-y-16">
                             {{ collection:articles }}
-                                {{ partial src="articles/card" }}
+                                {{ if no_results }}
+                                    <p class="text-zinc-400 dark:text-zinc-500">No results</p>
+                                {{ else }}
+                                    {{ partial src="articles/card" }}
+                                {{ /if }}
                             {{ /collection:articles }}
                         </div>
                     </div>
