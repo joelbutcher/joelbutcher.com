@@ -11,3 +11,53 @@ data:
       type: job
       enabled: true
       image: superscript-logo.png
+    -
+      id: ld7dnk38
+      image: adzooma-logo.svg
+      company: Adzooma
+      role: 'Fullstack Developer'
+      start_date: 'Dec `21'
+      current_workplace: false
+      end_date: 'Dec `22'
+      type: job
+      enabled: true
+    -
+      id: ld7doiam
+      image: adzooma-logo.svg
+      company: Adzooma
+      role: 'Mid Level PHP Developer'
+      start_date: 'Mar `21'
+      current_workplace: false
+      end_date: 'Dec `21'
+      type: job
+      enabled: true
+    -
+      id: ld7drkwi
+      image: trs-design.jpg
+      company: 'TRS Design Ltd'
+      role: 'Web Developer (PHP)'
+      start_date: 'Oct `20'
+      current_workplace: false
+      end_date: 'Mar `21'
+      type: job
+      enabled: true
+    -
+      id: ld7duh84
+      image: lincoln-students-union.png
+      company: 'Uni of Lincoln SU'
+      role: 'Web Developer (PHP'
+      start_date: 'Mar `20'
+      current_workplace: false
+      end_date: 'Oct `20'
+      type: job
+      enabled: true
+    -
+      id: ld7dvxb2
+      image: adzooma-logo.svg
+      company: Adzooma
+      role: 'Web Developer'
+      start_date: 'May `18'
+      current_workplace: false
+      end_date: 'Mar `20'
+      type: job
+      enabled: true
