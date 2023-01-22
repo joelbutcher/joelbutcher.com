@@ -42,7 +42,7 @@ links:
     type: link
     enabled: true
 updated_by: 8335aa12-1c0a-4f6f-b6c7-ebc3b5c2574d
-updated_at: 1674260756
+updated_at: 1674392586
 profile_photo: profile.JPG
 content:
   -
@@ -127,7 +127,7 @@ content:
             attrs:
               href: 'https://alivechurch.org.uk'
               rel: null
-              target: null
+              target: _blank
               title: null
         text: Alive
       -
