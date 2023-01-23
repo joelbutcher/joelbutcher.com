@@ -34,6 +34,18 @@ return [
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => env('GITHUB_REDIRECT'),
+        'redirect' => env('GITHUB_REDIRECT', 'https://joelbutcher.com.test/oauth/github/callback'),
+    ],
+
+    'twitter' => [
+        'enabled' => env('TWITTER_ENABLED'),
+        'client_id' => env('TWITTER_CLIENT_ID'),
+        'client_secret' => env('TWITTER_CLIENT_SECRET'),
+        'redirect' => env('TWITTER_REDIRECT', 'https://joelbutcher.com.test/oauth/twitter/callback'),
+
+        'consumer_key' => env('TWITTER_CONSUMER_KEY', 'my-twitter-consumer-key'),
+        'consumer_secret' => env('TWITTER_CONSUMER_SECRET', 'my-twitter-consumer-secret'),
+        'access_token' => env('TWITTER_ACCESS_TOKEN', 'my-twitter-access-token'),
+        'access_secret' => env('TWITTER_ACCESS_SECRET', 'my-twitter-access-secret'),
     ],
 ];

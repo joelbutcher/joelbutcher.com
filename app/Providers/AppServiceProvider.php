@@ -2,32 +2,23 @@
 
 namespace App\Providers;
 
+use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Services\Twitter\Twitter;
 use Illuminate\Support\ServiceProvider;
-use Statamic\Facades\Markdown;
-use Statamic\Statamic;
-use Torchlight\Commonmark\V2\TorchlightExtension;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
+    public function register(): void
     {
-        //
-    }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-//        Markdown::addExtension(function () {
-//            return new TorchlightExtension();
-//        });
+        $this->app->when([Twitter::class])
+            ->needs(TwitterOAuth::class)
+            ->give(function () {
+                return new TwitterOAuth(
+                    config('services.twitter.consumer_key'),
+                    config('services.twitter.consumer_secret'),
+                    config('services.twitter.access_token'),
+                    config('services.twitter.access_secret')
+                );
+            });
     }
 }

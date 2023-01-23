@@ -24,7 +24,7 @@ sections:
           validate:
             - required
       -
-        handle: hero
+        handle: featured_image
         field:
           mode: grid
           container: assets
@@ -49,15 +49,11 @@ sections:
           always_show_set_button: false
           previews: true
           sets:
-            new_set:
-              display: 'New Set'
+            code_block:
+              display: 'Code Block'
               fields:
                 -
-                  handle: code
-                  field: code_block.code
-                -
-                  handle: language
-                  field: code_block.language
+                  import: code_block
           buttons:
             - h2
             - h3
@@ -80,12 +76,12 @@ sections:
           link_noopener: false
           link_noreferrer: false
           target_blank: false
-          reading_time: false
+          reading_time: true
           fullscreen: true
           allow_source: true
-          enable_input_rules: true
+          enable_input_rules: false
           enable_paste_rules: true
-          antlers: false
+          antlers: true
           remove_empty_nodes: false
           display: Content
           type: bard
@@ -114,6 +110,8 @@ sections:
           instructions_position: above
           visibility: visible
           always_save: false
+          validate:
+            - required
       -
         handle: date
         field:
