@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   content: [
@@ -12,9 +13,13 @@ module.exports = {
       fontFamily: {
         'serif': ['eb-garamond', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        ...colors,
+        primary: colors.fuchsia,
+      },
       typography: (theme) => ({
         DEFAULT: {
-          color: theme('colors.violet'),
+          color: theme('colors.primary'),
           css: {
             p: {
               color: theme('colors.zinc.500'),
@@ -22,7 +27,7 @@ module.exports = {
               lineHeight: theme('lineHeight.7')
             },
             blockquote: {
-              borderColor: theme('colors.violet.400'),
+              borderColor: theme('colors.primary.400'),
               p: {
                 color: theme('colors.zinc.400'),
               },
@@ -38,11 +43,11 @@ module.exports = {
               textDecoration: 'none',
               borderBottom: '2px',
               borderStyle: 'solid',
-              borderColor: theme('colors.violet.500'),
+              borderColor: theme('colors.primary.500'),
               '&:hover': {
                 borderBottom: '4px',
                 borderStyle: 'solid',
-                borderColor: theme('colors.violet.500'),
+                borderColor: theme('colors.primary.500'),
               }
             }
           },
@@ -53,7 +58,7 @@ module.exports = {
               color: theme('colors.zinc.400')
             },
             blockquote: {
-              borderColor: theme('colors.violet.400'),
+              borderColor: theme('colors.primary.400'),
               p: {
                 color: theme('colors.zinc.400'),
               },
@@ -63,9 +68,9 @@ module.exports = {
             },
             a: {
               color: theme('colors.zinc.300'),
-              borderColor: theme('colors.violet.500'),
+              borderColor: theme('colors.primary.500'),
               '&:hover': {
-                borderColor: theme('colors.violet.500'),
+                borderColor: theme('colors.primary.500'),
               },
             }
           },

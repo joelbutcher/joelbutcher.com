@@ -4,10 +4,11 @@ return [
 
     'enabled' => env('STATAMIC_OAUTH_ENABLED', false),
 
-    'email_login_enabled' => true,
+    'email_login_enabled' => false,
 
     'providers' => [
-         'github' => 'Github'
+        'github' => 'GitHub',
+        'twitter' => 'Twitter',
     ],
 
     'routes' => [
