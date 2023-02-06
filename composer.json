@@ -73,6 +73,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
+        "test": "@php artisan test --parallel",
         "pre-update-cmd": [
             "Statamic\\Console\\Composer\\Scripts::preUpdateCmd"
         ],
