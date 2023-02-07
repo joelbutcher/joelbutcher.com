@@ -18,3 +18,30 @@ links:
     type: link
     enabled: true
 id: 4c87d8f0-5c2e-43cf-8e72-5b08d175f266
+preferences:
+  nav:
+    top_level:
+      'top_level::pages':
+        action: '@create'
+        display: Pages
+        url: collections/pages
+      'top_level::articles':
+        action: '@create'
+        display: Articles
+        url: collections/articles
+      'top_level::projects':
+        action: '@create'
+        display: Projects
+        url: collections/projects
+      'top_level::uses':
+        action: '@create'
+        display: Uses
+        url: collections/uses
+    content:
+      'content::collections':
+        action: '@modify'
+        children:
+          'content::collections::articles': '@hide'
+          'content::collections::pages': '@hide'
+          'content::collections::projects': '@hide'
+          'content::collections::uses': '@hide'
