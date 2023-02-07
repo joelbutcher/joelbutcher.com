@@ -30,6 +30,7 @@ fields:
         applescript: Applescript
         asm: Assembly
         awk: AWK
+        bash: Bash
         bat: Batch
         c: c
         csharp: 'C#'
@@ -42,7 +43,7 @@ fields:
         curl: Curl
         d: D
         dart: Dart
-        dockerfile: Dockerfil
+        dockerfile: Dockerfile
         elixir: Elixir
         elm: Elm
         erb: 'Embedded Ruby (ERB'
@@ -67,67 +68,67 @@ fields:
         java: Java
         javascript: JavaScript
         jinja-html: 'Jinja HTML'
-        JSON: json
+        json: JSON
         jsonc: jsonc
         Jsonnet: jsonnet
-        JSX: jsx
-        Julia: julia
-        Kotlin: kotlin
-        'Laravel Blade': blade
-        Latex: latex
-        Less: less
-        Lisp: lisp
-        Logo: logo
-        Lua: lua
-        Makefile: makefile
-        Markdown: markdown
-        MATLAB: matlab
-        MDX: mdx
-        Nix: nix
-        Objective-C: objective-c
-        OCaml: ocaml
-        Pascal: pascal
-        Perl: perl
-        Perl6: perl6
-        PHP: php
-        Plaintext: plaintext
-        PLSQL: pls
-        PostCSS: postcss
-        PowerShell: powershell
-        Prolog: prolog
-        Pug: pug
-        Puppet: puppet
-        PureScript: purescript
-        Python: python
-        R: r
-        Razor: razor
-        Ruby: ruby
-        Rust: rust
-        SAS: sas
-        Sass: sass
-        Scala: scala
-        Scheme: scheme
-        SCSS: scss
-        ShaderLab: shaderlab
-        Shell: shell
-        Smalltalk: smalltalk
-        SQL: sql
+        jsx: JSX
+        julia: Julia
+        kotlin: Kotlin
+        blade: 'Laravel Blade'
+        latex: Latex
+        less: Less
+        lisp: Lisp
+        logo: Logo
+        lua: Lua
+        makefile: Makefile
+        markdown: Markdown
+        matlab: MATLAB
+        mdx: MDX
+        nix: Nix
+        objective-c: Objective-C
+        ocaml: OCaml
+        pascal: Pascal
+        perl: Perl
+        perl6: Perl6
+        php: PHP
+        plaintext: Plaintext
+        pls: PLSQL
+        postcss: PostCSS
+        powershell: PowerShell
+        prolog: Prolog
+        pug: Pug
+        puppet: Puppet
+        purescript: PureScript
+        python: Python
+        r: R
+        razor: Razor
+        ruby: Ruby
+        rust: Rust
+        sas: SAS
+        sass: Sass
+        scala: Scala
+        scheme: Scheme
+        scss: SCSS
+        shaderlab: ShaderLab
+        shell: Shell
+        smalltalk: Smalltalk
+        sql: SQL
         ssh-config: ssh-config
-        'Statamic Antlers': antlers
-        Stylus: stylus
-        Swift: swift
-        Tcl: tcl
-        TOML: toml
+        antlers: 'Statamic Antlers'
+        stylus: Stylus
+        swift: Swift
+        tcl: Tcl
+        toml: TOML
         tsx: tsx
-        TypeScript: typescript
-        VB: vb
-        VimL: viml
-        Vue: vue
-        WebAssembly: wasm
-        Wenyan: wenyan
-        XML: xml
-        XSL: xsl
-        YAML: yaml
+        typescript: TypeScript
+        vb: VB
+        viml: VimL
+        vue: Vue
+        wasm: WebAssembly
+        wenyan: Wenyan
+        xml: XML
+        xsl: XSL
+        yaml: YAML
       multiple: false
       clearable: false
       searchable: true
