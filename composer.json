@@ -14,7 +14,6 @@
         "fruitcake/laravel-cors": "^2.0.5",
         "gioppy/statamic-metatags": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
-        "handmadeweb/statamic-laravel-packages": "^1.0",
         "jonassiewertsen/statamic-livewire": "^2.9",
         "laravel/framework": "^9.0",
         "laravel/horizon": "^5.13",
@@ -25,7 +24,7 @@
         "simonhamp/statamic-heroicons": "^1.1",
         "spatie/laravel-backup": "^8.1",
         "spatie/laravel-event-sourcing": "*",
-        "statamic/cms": "3.3.65",
+        "statamic/cms": "3.4.*",
         "torchlight/torchlight-commonmark": "^0.5.5"
     },
     "require-dev": {
