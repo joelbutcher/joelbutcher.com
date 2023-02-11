@@ -21,7 +21,7 @@ it('creates an article', function () {
         'title' => 'Why Laravel is Good',
         'slug' => 'why-laravel-is-good',
         'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget odio pretium dolor sodales tempor in id sapien.',
-        'content' => json_encode(['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget odio pretium dolor sodales tempor in id sapien.']),
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget odio pretium dolor sodales tempor in id sapien.',
         'published' => false,
     ]);
 });

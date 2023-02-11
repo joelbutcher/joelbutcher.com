@@ -44,7 +44,7 @@ it('updates the article', function () {
         'title' => 'Why Laravel is Awesome',
         'slug' => 'why-laravel-is-awesome',
         'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget odio pretium dolor sodales tempor in id sapien.',
-        'content' => json_encode(['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget odio pretium dolor sodales tempor in id sapien.']),
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget odio pretium dolor sodales tempor in id sapien.',
         'published' => false,
     ]);
 });
@@ -57,7 +57,7 @@ it('shares the article when it is published', function () {
         'title' => 'Why Laravel is Awesome',
         'slug' => 'why-laravel-is-awesome',
         'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget odio pretium dolor sodales tempor in id sapien.',
-        'content' => ['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget odio pretium dolor sodales tempor in id sapien.'],
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget odio pretium dolor sodales tempor in id sapien.',
         'published' => true,
         'featuredImage' => '',
     ];
