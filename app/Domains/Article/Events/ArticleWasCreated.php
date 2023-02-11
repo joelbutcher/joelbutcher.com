@@ -12,7 +12,7 @@ class ArticleWasCreated extends ShouldBeStored
         public readonly string $title,
         public readonly string $slug,
         public readonly string $excerpt,
-        public readonly array $content,
+        public readonly ?string $content,
         public readonly bool $published,
         public readonly ?string $featuredImage,
         public readonly ?Carbon $createdAt,

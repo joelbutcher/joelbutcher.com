@@ -1,7 +1,13 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
+// Modify your tailwind.config.js
+const disabledCss = {
+  pre: false,
+}
+
 module.exports = {
+  darkMode: 'class',
   content: [
     './resources/**/*.antlers.html',
     './resources/**/*.blade.php',
@@ -49,7 +55,8 @@ module.exports = {
                 borderStyle: 'solid',
                 borderColor: theme('colors.primary.500'),
               }
-            }
+            },
+            ...disabledCss,
           },
         },
         invert: {
@@ -72,7 +79,8 @@ module.exports = {
               '&:hover': {
                 borderColor: theme('colors.primary.500'),
               },
-            }
+            },
+            ...disabledCss,
           },
         },
       }),

@@ -12,7 +12,7 @@ use Spatie\EventSourcing\Projections\Projection;
  * @property string $title
  * @property string $slug
  * @property string $excerpt
- * @property array $content
+ * @property ?string $content
  * @property bool $published
  * @property string $tweet_id
  * @property string|null $featured_image
@@ -28,7 +28,6 @@ class Article extends Projection
     protected $guarded = [];
 
     protected $casts = [
-        'content' => 'array',
         'published' => 'boolean',
     ];
 

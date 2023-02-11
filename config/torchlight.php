@@ -11,16 +11,12 @@ return [
 
     // Which theme you want to use. You can find all of the themes at
     // https://torchlight.dev/docs/themes.
-    'theme' => env('TORCHLIGHT_THEME', 'material-theme-palenight'),
+    'theme' => env('TORCHLIGHT_THEME', 'olaolu-palenight'),
 
-    // If you want to use two separate themes for dark and light modes,
-    // you can use an array to define both themes. Torchlight renders
-    // both on the page, and you will be responsible for hiding one
-    // or the other depending on the dark / light mode via CSS.
-    // 'theme' => [
-    //     'dark' => 'github-dark',
-    //     'light' => 'github-light',
-    // ],
+//    'theme' => [
+//        'dark' => env('TORCHLIGHT_DARK_THEME', 'github-dark'),
+//        'light' => env('TORCHLIGHT_LIGHT_THEME', 'github-light'),
+//    ],
 
     // Your API token from torchlight.dev.
     'token' => env('TORCHLIGHT_TOKEN'),
@@ -46,14 +42,17 @@ return [
     // Global options to control blocks-level settings.
     // https://torchlight.dev/docs/options
     'options' => [
+        // Enables or disables the "copy to clipboard" button in torchlight code snippets
+        'copyable' => true,
+
         // Turn line numbers on or off globally.
-        // 'lineNumbers' => false,
+        'lineNumbers' => false,
 
         // Control the `style` attribute applied to line numbers.
         // 'lineNumbersStyle' => '',
 
         // Turn on +/- diff indicators.
-        // 'diffIndicators' => true,
+        'diffIndicators' => true,
 
         // If there are any diff indicators for a line, put them
         // in place of the line number to save horizontal space.

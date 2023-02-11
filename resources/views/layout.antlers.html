@@ -4,9 +4,17 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <title>{{ site:name }} - {{ title }}</title>
+
         {{ vite src="resources/css/tailwind.css|resources/js/site.js" }}
+
         {{ livewire:styles }}
+
+        <meta name="theme-color" content="#ffffff">
+        <meta name="color-scheme" content="light">
+
+        {{  partial src="theme" }}
     </head>
     <body class="flex h-full flex-col bg-zinc-50 dark:bg-black font-sans">
         <div class="fixed inset-0 flex justify-center sm:px-8">

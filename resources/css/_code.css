@@ -1,0 +1,54 @@
+:not(pre) > code {
+    color: theme('colors.gray.900');
+    background: none;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    tab-size: 4;
+    hyphens: none;
+}
+
+pre {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    tab-size: 4;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    @apply text-xs font-light my-4 relative rounded-lg;
+}
+
+.code-block-wrapper .copyBtn {
+    @apply absolute right-2 top-2 outline-none text-gray-200 hover:text-gray-500 opacity-25 hover:opacity-100;
+}
+
+pre .copyBtn:hover,
+pre .copyBtn:focus,
+pre .copyBtn:active {
+    @apply text-white outline-none;
+}
+
+pre code.torchlight[data-theme='dark'] {
+    @apply hidden dark:block
+}
+
+pre code.torchlight[data-theme='light'] {
+    @apply dark:hidden
+}
+
+pre code.torchlight {
+    @apply block py-4 min-w-max;
+}
+
+pre code.torchlight .line {
+    @apply px-4 py-1;
+}
+
+pre code.torchlight .line-number,
+pre code.torchlight .summary-caret {
+    @apply mr-4;
+}

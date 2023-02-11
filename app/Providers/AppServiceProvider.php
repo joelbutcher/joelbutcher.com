@@ -5,6 +5,8 @@ namespace App\Providers;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Services\Twitter\Twitter;
 use Illuminate\Support\ServiceProvider;
+use Statamic\Facades\Markdown;
+use Torchlight\Commonmark\V2\TorchlightExtension;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,5 +22,12 @@ class AppServiceProvider extends ServiceProvider
                     config('services.twitter.access_secret')
                 );
             });
+    }
+
+    public function boot(): void
+    {
+        Markdown::addExtension(function () {
+            return new TorchlightExtension();
+        });
     }
 }

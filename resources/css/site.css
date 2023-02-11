@@ -1,6 +1,9 @@
 /* This is all you. */
 @import 'https://use.typekit.net/zyp3oyu.css';
 
+@import '_code.css';
+@import '_dark_mode.css';
+
 body {
     @apply font-sans;
 }

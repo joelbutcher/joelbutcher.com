@@ -1,10 +1,7 @@
 /* Tailwind Base CSS */
 @import 'tailwindcss/base';
-
-/* Custom site CSS */
-@import 'site';
-
-/* Tailwind */
 @import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
 
+@import 'site.css';
+
+@import 'tailwindcss/utilities';
