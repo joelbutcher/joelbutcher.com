@@ -13,10 +13,10 @@ return [
     // https://torchlight.dev/docs/themes.
     'theme' => env('TORCHLIGHT_THEME', 'olaolu-palenight'),
 
-//    'theme' => [
-//        'dark' => env('TORCHLIGHT_DARK_THEME', 'github-dark'),
-//        'light' => env('TORCHLIGHT_LIGHT_THEME', 'github-light'),
-//    ],
+    //    'theme' => [
+    //        'dark' => env('TORCHLIGHT_DARK_THEME', 'github-dark'),
+    //        'light' => env('TORCHLIGHT_LIGHT_THEME', 'github-light'),
+    //    ],
 
     // Your API token from torchlight.dev.
     'token' => env('TORCHLIGHT_TOKEN'),
