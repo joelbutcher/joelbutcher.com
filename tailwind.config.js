@@ -4,6 +4,9 @@ const colors = require('tailwindcss/colors');
 // Modify your tailwind.config.js
 const disabledCss = {
   pre: false,
+  code: false,
+  'code::before': false,
+  'code::after': false,
 }
 
 module.exports = {

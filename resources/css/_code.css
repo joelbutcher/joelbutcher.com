@@ -22,6 +22,17 @@ pre {
     @apply text-xs font-light my-4 relative rounded-lg;
 }
 
+:not(pre) code {
+    display: inline-flex;
+    max-width: 100%;
+    overflow-x: auto;
+    vertical-align: middle;
+    @apply text-sm rounded px-1;
+    @apply border border-gray-100 dark:border-gray-700;
+    @apply bg-gray-50 dark:bg-gray-800;
+    @apply text-primary-500 dark:text-primary-400;
+}
+
 .code-block-wrapper .copyBtn {
     @apply absolute right-2 top-2 outline-none text-gray-200 hover:text-gray-500 opacity-25 hover:opacity-100;
 }
