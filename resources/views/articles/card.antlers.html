@@ -2,14 +2,14 @@
     {{# Desktop only #}}
     <div class="mt-1 hidden md:block relative z-10 mb-3 flex items-center">
         <div class="relative flex items-center z-10 mb-3">
-            <img class="rounded-full bg-primary-100 object-cover dark:bg-zinc-800 h-9 w-9" width="642" height="643" src="{{ author:avatar.url }}" loading="lazy" decoding="async" >
+            <img class="rounded-full bg-primary-100 object-cover dark:bg-zinc-800 h-9 w-9" width="642" height="643" src="{{ header.logo.url }}" loading="lazy" decoding="async" >
             <div class="flex flex-col justify-center pl-3">
                 <p class="font-semibold text-black dark:text-zinc-200">
-                        {{ author:name }}
+                    Joel Butcher
                 </p>
 
                 <time class="text-sm text-zinc-400 dark:text-zinc-500" datetime="{{ date }}">
-                        {{ date }}
+                    {{ date }}
                 </time>
             </div>
         </div>
@@ -17,14 +17,14 @@
 
     <div class="relative md:col-span-2 group">
         <div class="md:hidden relative flex items-center z-10 mb-3">
-            <img class="rounded-full bg-primary-100 object-cover dark:bg-zinc-800 h-9 w-9" width="642" height="643" src="{{ author:avatar.url }}" loading="lazy" decoding="async" >
+            <img class="rounded-full bg-primary-100 object-cover dark:bg-zinc-800 h-9 w-9" width="642" height="643" src="{{ header.logo.url }}" loading="lazy" decoding="async" >
             <div class="flex flex-col justify-center pl-3.5">
                 <p class="font-semibold text-black dark:text-zinc-200">
-                        {{ author:name }}
+                    Joel Butcher
                 </p>
 
                 <time class="text-sm text-zinc-400 dark:text-zinc-500" datetime="{{ date }}">
-                        {{ date }}
+                    {{ date }}
                 </time>
             </div>
         </div>

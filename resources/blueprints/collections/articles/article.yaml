@@ -85,20 +85,6 @@ sections:
           type: slug
           localizable: true
       -
-        handle: author
-        field:
-          max_items: 1
-          mode: select
-          display: Author
-          type: users
-          icon: users
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-          validate:
-            - required
-      -
         handle: date
         field:
           type: date
