@@ -1,4 +1,3 @@
-order: 1
 sections:
   main:
     display: Main
@@ -49,6 +48,23 @@ sections:
           listable: hidden
           instructions_position: above
           visibility: visible
+      -
+        handle: categories
+        field:
+          collapse: false
+          previews: true
+          sets:
+            category:
+              display: Category
+              fields:
+                -
+                  import: uses
+          display: Categories
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          visibility: visible
   sidebar:
     display: Sidebar
     fields:
@@ -71,4 +87,4 @@ sections:
     fields:
       -
         import: metatags
-title: Page
+title: Uses
