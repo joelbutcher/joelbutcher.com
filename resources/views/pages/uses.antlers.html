@@ -1,4 +1,19 @@
 <div class="sm:px-8 mt-16 sm:mt-20">
+    <!-- Image clip paths -->
+    <svg aria-hidden="true" width="0" height="0">
+        <defs>
+            <clipPath id=":R9m:-0" clipPathUnits="objectBoundingBox">
+                <path d="M0,0 h0.729 v0.129 h0.121 l-0.016,0.032 C0.815,0.198,0.843,0.243,0.885,0.243 H1 v0.757 H0.271 v-0.086 l-0.121,0.057 v-0.214 c0,-0.032,-0.026,-0.057,-0.057,-0.057 H0 V0"></path>
+            </clipPath>
+            <clipPath id=":R9m:-1" clipPathUnits="objectBoundingBox">
+                <path d="M1,1 H0.271 v-0.129 H0.15 l0.016,-0.032 C0.185,0.802,0.157,0.757,0.115,0.757 H0 V0 h0.729 v0.086 l0.121,-0.057 v0.214 c0,0.032,0.026,0.057,0.057,0.057 h0.093 v0.7"></path>
+            </clipPath>
+            <clipPath id=":R9m:-2" clipPathUnits="objectBoundingBox">
+                <path d="M1,0 H0.271 v0.129 H0.15 l0.016,0.032 C0.185,0.198,0.157,0.243,0.115,0.243 H0 v0.757 h0.729 v-0.086 l0.121,0.057 v-0.214 c0,-0.032,0.026,-0.057,0.057,-0.057 h0.093 V0"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
     <div class="mx-auto max-w-7xl lg:px-8">
         <div class="relative px-4 sm:px-8 lg:px-12">
             <div class="mx-auto max-w-2xl lg:max-w-5xl">
@@ -9,103 +24,13 @@
 
                     <div class="text-lg prose dark:prose-invert my-6">
                         {{ content }}
-                            {{ partial src="sets/{type}" }}
-                        {{ /content }}
                     </div>
                 </header>
                 <div class="mt-16 sm:mt-20">
                     <div class="space-y-20">
-                        <!-- SECTION Workstation -->
-                        <section aria-labelledby=":r0:" class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-                            <div class="grid max-w-3xl grid-cols-1 items-baseline gap-y-8 md:grid-cols-4">
-                                <h2 id=":r0:" class="text-lg font-semibold text-zinc-800 dark:text-zinc-200 capitalize">
-                                    Workstation
-                                </h2>
-                                <div class="md:col-span-3">
-                                    <ul role="list" class="space-y-16">
-                                        {{ collection:uses as="entries" category:is="workstation" sort="order" }}
-                                            {{ if no_results }}
-                                                <li class="text-zinc-400 dark:text-zinc-500">No results</li>
-                                            {{ else }}
-                                                {{ entries }}
-                                                    {{ partial src="uses-item" }}
-                                                {{ /entries }}
-                                            {{ /if }}
-                                        {{ /collection:uses }}
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- END SECTION Workstation -->
-
-                        <!-- SECTION Tooling -->
-                        <section aria-labelledby=":r0:" class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-                            <div class="grid max-w-3xl grid-cols-1 items-baseline gap-y-8 md:grid-cols-4">
-                                <h2 id=":r0:" class="text-lg font-semibold text-zinc-800 dark:text-zinc-200 capitalize">
-                                    Tooling
-                                </h2>
-                                <div class="md:col-span-3">
-                                    <ul role="list" class="space-y-16">
-                                        {{ collection:uses as="entries" category:is="tooling" sort="order" }}
-                                            {{ if no_results }}
-                                                <li class="text-zinc-400 dark:text-zinc-500">No results</li>
-                                            {{ else }}
-                                                {{ entries }}
-                                                    {{ partial src="uses-item" }}
-                                                {{ /entries }}
-                                            {{ /if }}
-                                        {{ /collection:uses }}
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- END SECTION Tooling -->
-
-                        <!-- SECTION Services -->
-                        <section aria-labelledby=":r0:" class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-                            <div class="grid max-w-3xl grid-cols-1 items-baseline gap-y-8 md:grid-cols-4">
-                                <h2 id=":r0:" class="text-lg font-semibold text-zinc-800 dark:text-zinc-200 capitalize">
-                                    Services
-                                </h2>
-                                <div class="md:col-span-3">
-                                    <ul role="list" class="space-y-16">
-                                        {{ collection:uses as="entries" category:is="services" sort="order" }}
-                                            {{ if no_results }}
-                                                <li class="text-zinc-400 dark:text-zinc-500">No results</li>
-                                            {{ else }}
-                                                {{ entries }}
-                                                    {{ partial src="uses-item" }}
-                                                {{ /entries }}
-                                            {{ /if }}
-                                        {{ /collection:uses }}
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- END SECTION Services -->
-
-                        <!-- SECTION Productivity -->
-                        <section aria-labelledby=":r0:" class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-                            <div class="grid max-w-3xl grid-cols-1 items-baseline gap-y-8 md:grid-cols-4">
-                                <h2 id=":r0:" class="text-lg font-semibold text-zinc-800 dark:text-zinc-200 capitalize">
-                                    Productivity
-                                </h2>
-                                <div class="md:col-span-3">
-                                    <ul role="list" class="space-y-16">
-                                        {{ collection:uses as="entries" category:is="productivity" sort="order" }}
-                                            {{ if no_results }}
-                                                <li class="text-zinc-400 dark:text-zinc-500">No results</li>
-                                            {{ else }}
-                                                {{ entries }}
-                                                    {{ partial src="uses-item" }}
-                                                {{ /entries }}
-                                            {{ /if }}
-                                      {{ /collection:uses }}
-                                    </ul>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- END SECTION Productivity -->
+                        {{ categories }}
+                            {{ partial src="sets/uses/category" }}
+                        {{ /categories }}
                     </div>
                 </div>
             </div>

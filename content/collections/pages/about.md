@@ -41,96 +41,12 @@ links:
     url: 'https://t.me/joelbutcher'
     type: link
     enabled: true
-updated_by: 8335aa12-1c0a-4f6f-b6c7-ebc3b5c2574d
-updated_at: 1674392586
+updated_by: 4c87d8f0-5c2e-43cf-8e72-5b08d175f266
+updated_at: 1678350934
 profile_photo: profile.JPG
-content:
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: "I work as a Fullstack Software Engineering for a company called\_"
-      -
-        type: text
-        marks:
-          -
-            type: link
-            attrs:
-              href: 'https://gosuperscript.com'
-              rel: null
-              target: null
-              title: null
-        text: Superscript
-      -
-        type: text
-        text: ", the UK’s first FCA approved InsurTech company transforming business insurance using cutting-edge technology. I specialise in Laravel PHP, but being a frontend developer, I'm also comfortable with a wide range of frontend technologies such as Vue, React, Next.js and Tailwind CSS."
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: 'In my spare time I like to expand my knowledge by reading inspiring books such as '
-      -
-        type: text
-        marks:
-          -
-            type: link
-            attrs:
-              href: 'https://deployempathy.com'
-              rel: null
-              target: null
-              title: null
-        text: 'Deploy Empathy by Michele Hansen'
-      -
-        type: text
-        text: ', or '
-      -
-        type: text
-        marks:
-          -
-            type: link
-            attrs:
-              href: 'https://www.amazon.co.uk/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882'
-              rel: null
-              target: null
-              title: null
-        text: 'Clean Code by Martin C. Robert'
-      -
-        type: text
-        text: ' 📖, share my knowledge, experiences, tips & tricks on '
-      -
-        type: text
-        marks:
-          -
-            type: link
-            attrs:
-              href: 'statamic://entry::2b9896c8-5244-4155-83ba-e8d75f74d956'
-              rel: null
-              target: null
-              title: null
-        text: 'my blog'
-      -
-        type: text
-        text: ' 📓, spend time with family or hang out with friends , or play guitar 🎸. I have a broad range of music tastes from some of the latest bangers to the old classics like Hotel California by The Eagles.'
-  -
-    type: paragraph
-    content:
-      -
-        type: text
-        text: "I'm a worship guitarist and play on the worship team at my local church, "
-      -
-        type: text
-        marks:
-          -
-            type: link
-            attrs:
-              href: 'https://alivechurch.org.uk'
-              rel: null
-              target: _blank
-              title: null
-        text: Alive
-      -
-        type: text
-        text: ", where I'm also a sound engineer."
 ---
+I work as a Fullstack Software Engineering for a company called [Superscript](https://gosuperscript.com/), the UK’s first FCA approved InsurTech company transforming business insurance using cutting-edge technology. I specialise in Laravel PHP, but being a frontend developer, I'm also comfortable with a wide range of frontend technologies such as Vue, React, Next.js and Tailwind CSS.
+
+In my spare time I like to expand my knowledge by reading inspiring books such as [Deploy Empathy by Michele Hansen](https://amzn.to/3JAHZpf), or [Clean Code by Martin C. Robert](https://amzn.to/3ZCkmCe) 📖, share my knowledge, experiences, tips & tricks on [my blog](https://joelbutcher.com/blog) 📓, spend time with family or hang out with friends , or play guitar 🎸. I have a broad range of music tastes from some of the latest bangers to the old classics like Hotel California by The Eagles.
+
+I'm a worship guitarist and play on the worship team at my local church, [Alive](https://alivechurch.org.uk), where I'm also a sound engineer.

@@ -37,42 +37,18 @@ sections:
       -
         handle: content
         field:
-          collapse: false
-          always_show_set_button: false
-          previews: true
-          buttons:
-            - bold
-            - italic
-            - underline
-            - strikethrough
-            - removeformat
-            - anchor
-            - code
-          save_html: false
-          toolbar_mode: fixed
-          link_noopener: false
-          link_noreferrer: false
-          target_blank: false
-          reading_time: false
-          fullscreen: true
-          allow_source: true
-          enable_input_rules: true
-          enable_paste_rules: true
+          restrict: false
+          automatic_line_breaks: true
+          automatic_links: false
+          escape_markup: false
+          smartypants: true
           antlers: true
-          remove_empty_nodes: false
           display: Content
-          type: bard
-          icon: bard
+          type: markdown
+          icon: markdown
           listable: hidden
           instructions_position: above
           visibility: visible
-          always_save: false
-          sets:
-            code_block:
-              display: 'Code Block'
-              fields:
-                -
-                  import: code_block
   sidebar:
     display: Sidebar
     fields:

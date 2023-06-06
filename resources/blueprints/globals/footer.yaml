@@ -32,3 +32,15 @@ sections:
           instructions_position: above
           visibility: visible
           always_save: false
+      -
+        handle: affiliate_text
+        field:
+          input_type: text
+          antlers: false
+          default: 'This site contains affliate links, which means I earn a small commission at no extra cost to you if you make a purchase via one of these links. This commission helps fund my work and pay the costs associated with running this site.'
+          display: 'Affiliate Text'
+          type: text
+          icon: text
+          listable: true
+          instructions_position: above
+          visibility: visible
