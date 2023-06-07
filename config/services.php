@@ -41,7 +41,7 @@ return [
         'enabled' => env('TWITTER_ENABLED'),
         'client_id' => env('TWITTER_CLIENT_ID'),
         'client_secret' => env('TWITTER_CLIENT_SECRET'),
-        'redirect' => env('TWITTER_REDIRECT', 'https://joelbutcher.com.test/oauth/twitter/callback'),
+        'redirect' => env('TWITTER_REDIRECT', 'https://joelbutcher.com.test/oauth/twitter-oauth-2/callback'),
 
         'consumer_key' => env('TWITTER_CONSUMER_KEY', 'my-twitter-consumer-key'),
         'consumer_secret' => env('TWITTER_CONSUMER_SECRET', 'my-twitter-consumer-secret'),
