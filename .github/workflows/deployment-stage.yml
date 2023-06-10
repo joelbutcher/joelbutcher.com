@@ -38,6 +38,6 @@ jobs:
 
       - name: Deploy to Envoyer
         env:
-          DEPLOYMENT_HOOK: ${{ secrets.DEPLOYMENT_HOOK }}
-          DEPLOYMENT_HASH: ${{ github.sha }}
+          DEPLOYMENT_HOOK: '${{ secrets.DEPLOYMENT_HOOK }}'
+          DEPLOYMENT_HASH: '${{ github.sha }}'
         run: curl -x GET $DEPLOYMENT_HOOK?sha=$DEPLOYMENT_HASH
