@@ -1,0 +1,24 @@
+name: Deployment – Stage
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment:
+      name: stage
+      url: ${{ steps.url.outputs.url }}
+
+    steps:
+      - name: Get Deployment URL
+        id: url
+        run: echo "::set-output name=url::${{ secrets.DEPLOY_URL }}"
+
+      - name: Deploy to Envoyer
+        env:
+          DEPLOYMENT_HOOK: '${{ secrets.DEPLOYMENT_HOOK }}'
+          DEPLOYMENT_HASH: '${{ github.sha }}'
+        run: curl -x GET $DEPLOYMENT_HOOK?sha=$DEPLOYMENT_HASH
