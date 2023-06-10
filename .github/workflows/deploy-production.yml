@@ -24,4 +24,4 @@ jobs:
         env:
           DEPLOYMENT_HOOK: '${{ secrets.DEPLOYMENT_HOOK }}'
           DEPLOYMENT_HASH: '${{ github.sha }}'
-        run: curl -x GET $DEPLOYMENT_HOOK?sha=$DEPLOYMENT_HASH
+        run: curl $DEPLOYMENT_HOOK?sha=$DEPLOYMENT_HASH
