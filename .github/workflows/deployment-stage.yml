@@ -1,0 +1,43 @@
+name: Deployment – Stage
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment:
+      name: stage
+      url: ${{ secrets.DEPLOY_URL }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+          tools: composer:v2
+          coverage: none
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction
+
+      - name: NPM CI
+        run: npm ci
+
+      - name: PEST Tests
+        run: ./vendor/bin/pest
+
+      - name: Code Style
+        run: ./vendor/bin/pint --test
+
+      - name: Deploy to Envoyer
+        env:
+          DEPLOYMENT_HOOK: ${{ secrets.DEPLOYMENT_HOOK }}
+          DEPLOYMENT_HASH: ${{ github.sha }}
+        run: curl -x GET $DEPLOYMENT_HOOK?sha=$DEPLOYMENT_HASH
