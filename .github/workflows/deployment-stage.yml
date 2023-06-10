@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: stage
-      url: ${{ secrets.DEPLOY_URL }}
+      url: '${{ secrets.DEPLOY_URL }}'
 
     steps:
       - name: Checkout code
