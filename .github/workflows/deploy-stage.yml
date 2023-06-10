@@ -1,9 +1,11 @@
 name: Deployment – Stage
 
 on:
-  push:
-    branches:
-      - develop
+  workflow_run:
+    workflows: [ "CI" ]
+    branches: [ develop ]
+    types:
+      - completed
 
 jobs:
   deployment:
