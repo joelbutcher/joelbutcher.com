@@ -2,10 +2,10 @@
 id: 370d0426-f08d-456f-9ce4-873606f9654e
 blueprint: uses
 title: Uses
-intro: 'Things I use.'
+intro: 'Stuff I use, software I love and other recommendations.'
 template: pages/uses
 updated_by: 4c87d8f0-5c2e-43cf-8e72-5b08d175f266
-updated_at: 1686071498
+updated_at: 1686390871
 categories:
   -
     id: lf0ywm2c
@@ -44,7 +44,7 @@ categories:
         image: images/stand.jpg
         description: 'I have two laptops; a work one and a personal one, so I needed a stand to house them both on my desk, so I can easily switch between the two when I need to. This desk fit the bill and it was reasonably prices, so I bought it.'
         type: details
-        enabled: true
+        enabled: false
       -
         id: likbdmin
         title: 'Caldigit TS3 Plus'
@@ -68,7 +68,7 @@ categories:
         image: images/lg-27ul850.jpg
         description: 'As noted above, on top of my primary 27" Samsung space-saver monitor, I also run an additional **two** 4K LG monitors courtesy of the company I work for. On the left hand side of my primary, I have one in portrait, on the right hand side, it''s in landscape'
         type: details
-        enabled: true
+        enabled: false
       -
         id: likc7mvx
         title: 'OWC DisplayLink Adapter'
@@ -76,7 +76,7 @@ categories:
         image: images/owc-adapter.jpg
         description: "Those of you familiar with the M1 Pro MacBook, you'll know it only has the GPU capabilities to power two monitors. 'So how are you running three?' you may be asking. Well that's all thanks to this adapter and the magic of DisplayLink! This adapter powers one of my monitors by using the CPU instead of the integrated graphics processing power of the M1 Pro chip."
         type: details
-        enabled: true
+        enabled: false
       -
         id: likgjr6z
         title: '2x Huanuo Monitor Arm'
@@ -84,7 +84,7 @@ categories:
         image: images/monitor-arm.jpg
         description: "These monitor arms are nothing special, they're budget friendly and do the job of supporting a monitor each. Since the Samsung monitor is mountable out-of-the-box, I only needed two monitor arms for the LG monitors. There's enough clearance underneath to comfortably hold a 27\" monitor in portrait orientation. You can seem them in good use in the photo at the top of this page."
         type: details
-        enabled: true
+        enabled: false
       -
         id: likcd1e2
         title: 'Keychron K2 – Brown Switches'
@@ -116,7 +116,7 @@ categories:
         image: images/palmrest.jpg
         description: "Having a mechanical keyboard means you need a palm rest, right? In all seriousness, this was a pretty nice impulse buy – it's comfortable, provides my hands with the right level of elevation required for the keyboard I use and it looks damn sexty against the blue desk pad 😍"
         type: details
-        enabled: true
+        enabled: false
       -
         id: likd2x16
         title: 'Edifier R1700BTs'
@@ -156,7 +156,7 @@ categories:
         image: images/airpods.jpg
         description: "When I'm working late and don't want to wake my wife or disturb the neighbours, I use my AirPods for listening to music or making phone & video calls instead of the Edifiers. These earbuds are great, the active noise cancellation is a bit ropey but I'm usually wearing them when sat in a quiet area anyway."
         type: details
-        enabled: true
+        enabled: false
       -
         id: likhlr9y
         title: 'HomePod Mini – Blue'
@@ -172,21 +172,13 @@ categories:
         image: images/desk-pad.jpg
         description: "In order to protect my desk from scraches and marks, I bought this desk pad. It'd nice and soft, it doesn't leave indents where heavy things are left and thanks to the suede base, it doesn't slide all over the place."
         type: details
-        enabled: true
+        enabled: false
       -
         id: likhrxsn
         title: 'Samsung T7 Shield – 4TB'
         link: 'https://amzn.to/3qv3rEX'
         image: images/ssd.jpg
         description: "It's important to back things up. Since I bought an Apple laptop with 1TB of storage, I needed to make sure I have a future-proof storage solution for backing up all of my files. I of course back them up to the cloud, but it never hurts having a physical copy. This drive is partitioned into two containers, one for back ups and another for storing media."
-        type: details
-        enabled: true
-      -
-        id: likifm9t
-        title: 'Sand Timer – Orange Sand'
-        link: 'https://amzn.to/3CcHP2u'
-        image: images/timer.jpg
-        description: "I'm quite a visual person, so having a 60 minute sand timer that depleats in front of me during my focus time, really helps me to break my work up in to more manageable chunks."
         type: details
         enabled: true
   -
@@ -205,18 +197,10 @@ categories:
         enabled: true
       -
         id: likj0k69
-        title: Safari
+        title: Arc
         link: 'https://www.apple.com/uk/safari/'
-        image: images/safari.png
-        description: "My browser of choice, there are some things that you have to do when using Vite, but that's okay. It's not a memory hog, and the anti-tracking and privacy features make it one of the best browsers in my opinion."
-        type: details
-        enabled: true
-      -
-        id: likj2kvb
-        title: 'Google Chrome'
-        link: 'https://www.google.com/intl/en_uk/chrome/'
-        image: images/chrome.svg
-        description: "I use this for work, because Google Meet SUCKS on Safari, that's the only reason..."
+        image: images/arc.png
+        description: "I started using Arc not too long ago and it's blazingly fast. It syncs seamlessly across my devices using iCloud. I love it!"
         type: details
         enabled: true
       -
@@ -247,12 +231,42 @@ categories:
     id: lf0ywpl0
     category: services
     type: category
-    enabled: false
+    enabled: true
+    items:
+      -
+        id: lipt02l5
+        title: 'Laravel Forge'
+        link: 'https://forge.laravel.com'
+        description: "I use Laravel to host most of my sites and apps. In fact, I'm using it right now to serve this page to you. Forge is fantastic, you can configure you're entire platform architecture using it –\_I would be lost without it."
+        type: details
+        enabled: true
+      -
+        id: lipt2q19
+        title: Laracasts
+        link: 'https://laracasts.com'
+        description: "Laracasts is my go-to service for e-learning when it comes to Laravel, Inertia or Vue. A lot of what I know has come from various series / episodes on the site. It's not perfect, and often extremely opinionated, but it does a great job if you're wanting a refresher."
+        type: details
+        enabled: true
   -
     id: lf0yws74
     category: productivity
     type: category
     enabled: false
+    items:
+      -
+        id: lipt4tbr
+        title: Raycast
+        link: 'https://raycast.com'
+        description: 'Raycast is a productivity hub – I have custom workflows from setting a 50-minute pomodoro timer & updating my slack status, to organising my jira ticket workflow, to performing basic repetitive tasks on my Mac. A must have for any power user.'
+        type: details
+        enabled: true
+      -
+        id: lipt73lx
+        title: Cron
+        link: 'https://cron.com/'
+        description: 'Cron is a clean, but feature rich calendar application for professional. I have a bunch of calendars that I need to track throughout the week; from shared family calendars, to events, payment schedules for budgeting and work. Cron comes on macOS and iOS, so syncing is a dream!'
+        type: details
+        enabled: true
 ---
 ![My Desk](assets/images/desk.jpg)
 

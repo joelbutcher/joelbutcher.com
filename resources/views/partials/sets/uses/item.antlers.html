@@ -1,15 +1,10 @@
 <li>
-    <a href="{{ link }}" target="_blank">
+    <a href="{{ link }}" target="_blank" aria-description="link to buy {{ title }}">
         <div class="group relative px-4">
             <div class="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition sm:group-hover:scale-100 sm:group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div>
 
             <div class="flex flex-col sm:flex-row gap-12">
                 <div class="grow z-10">
-                    <div class="w-full h-32 sm:h-full sm:w-40 bg-contain bg-no-repeat bg-center" style="background-image: url({{ image }})">
-                    </div>
-                </div>
-
-                <div class="z-10">
                     <p class="text-md font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
                         <span class="border-b-2 sm:group-hover:border-b-4 border-primary-500 transition-all">
                             {{ title }}
