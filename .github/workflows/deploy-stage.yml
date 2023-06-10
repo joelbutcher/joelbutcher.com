@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Get Deployment URL
         id: url
-        run: echo "::set-output name=url::${{ secrets.DEPLOY_URL }}"
+        run: echo "url=${{ secrets.DEPLOY_URL }}" >> $GITHUB_OUTPUT
 
       - name: Deploy to Envoyer
         env:
