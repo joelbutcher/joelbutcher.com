@@ -1,0 +1,26 @@
+name: Deployment – Stage
+
+on:
+  workflow_run:
+    workflows: [ "CI" ]
+    branches: [ develop ]
+    types:
+      - completed
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment:
+      name: stage
+      url: ${{ steps.url.outputs.url }}
+
+    steps:
+      - name: Get Deployment URL
+        id: url
+        run: echo "url=${{ secrets.DEPLOY_URL }}" >> $GITHUB_OUTPUT
+
+      - name: Deploy to Envoyer
+        env:
+          DEPLOYMENT_HOOK: '${{ secrets.DEPLOYMENT_HOOK }}'
+          DEPLOYMENT_HASH: '${{ github.sha }}'
+        run: curl $DEPLOYMENT_HOOK?sha=$DEPLOYMENT_HASH

@@ -1,9 +1,9 @@
 name: CI
 
-on: [ push, pull_request ]
+on: [push, pull_request]
 
 jobs:
-  envoyer:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,11 +29,3 @@ jobs:
 
       - name: Code Style
         run: ./vendor/bin/pint --test
-
-      - name: Deploy Staging
-        if: github.ref_name == 'develop'
-        run: curl ${{ secrets.DEPLOY_HOOK_STAGE }}?sha=${{ github.sha }}
-
-      - name: Deploy
-        if: github.ref_name == 'main'
-        run: curl ${{ secrets.DEPLOY_HOOK }}?sha=${{ github.sha }}

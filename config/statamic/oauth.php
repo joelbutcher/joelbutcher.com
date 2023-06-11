@@ -8,7 +8,6 @@ return [
 
     'providers' => [
         'github' => 'GitHub',
-        'twitter' => 'Twitter',
     ],
 
     'routes' => [
