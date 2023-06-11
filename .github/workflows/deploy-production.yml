@@ -12,7 +12,7 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     environment:
-      name: stage
+      name: production
       url: ${{ steps.url.outputs.url }}
 
     steps:
