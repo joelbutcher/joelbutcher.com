@@ -5,8 +5,9 @@ title: joelbutcher/dotfiles
 description: 'This contains my personal configs, customisations and themes used to customise my development experience.'
 project_url: 'https://github.com/joelbutcher/dotfiles'
 website: github.com
-updated_by: 8335aa12-1c0a-4f6f-b6c7-ebc3b5c2574d
-updated_at: 1674328346
+updated_by: 4c87d8f0-5c2e-43cf-8e72-5b08d175f266
+updated_at: 1688033940
 order: 2
-image: avatar.png
+image: github.svg
+date: '2023-06-29'
 ---
