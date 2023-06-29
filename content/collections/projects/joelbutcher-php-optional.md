@@ -5,8 +5,9 @@ title: joelbutcher/php-optional
 description: "An opinionated implementation of Java's Optional class for PHP."
 project_url: 'https://github.com/joelbutcher/php-optional'
 website: github.com
-updated_by: 8335aa12-1c0a-4f6f-b6c7-ebc3b5c2574d
-updated_at: 1674328390
+updated_by: 4c87d8f0-5c2e-43cf-8e72-5b08d175f266
+updated_at: 1688033977
 order: 3
-image: avatar.png
+image: github.svg
+date: '2023-06-29'
 ---
