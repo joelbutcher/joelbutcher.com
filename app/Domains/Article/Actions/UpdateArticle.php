@@ -7,10 +7,10 @@ use App\Domains\Article\DTOs\ArticleData;
 
 final readonly class UpdateArticle
 {
-    public function __invoke(ArticleData $articleData): void
+    public function __invoke(ArticleData $data): void
     {
-        ArticleAggregate::retrieve($articleData->uuid)->update(
-            articleData: $articleData,
+        ArticleAggregate::retrieve($data->uuid)->update(
+            articleData: $data,
         )->persist();
     }
 }

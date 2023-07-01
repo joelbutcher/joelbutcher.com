@@ -10,29 +10,50 @@ final readonly class SaveArticle
     public function __construct(
         private CreateArticle $createArticle,
         private UpdateArticle $updateArticle,
+        private PublishArticle $publishArticle,
     ) {
     }
 
-    public function __invoke(ArticleData $articleData): void
+    public function __invoke(ArticleData $data): void
     {
-        $article = Article::findByUuid($articleData->uuid);
+        $article = Article::findByUuid($data->uuid);
 
         $article
-            ? $this->update(articleData: $articleData)
-            : $this->create(articleData: $articleData);
+            ? $this->update($article, $data)
+            : $this->create($data);
     }
 
-    private function create(ArticleData $articleData): void
+    private function create(ArticleData $data): void
     {
-        ($this->createArticle)(
-            articleData: $articleData
+        $article = ($this->createArticle)(
+            data: $data
         );
+
+        if ($this->shouldPublish($article, $data)) {
+            $this->publish($article);
+        }
     }
 
-    private function update(ArticleData $articleData): void
+    private function update(Article $article, ArticleData $data): void
     {
         ($this->updateArticle)(
-            articleData: $articleData,
+            data: $data,
         );
+
+        if ($this->shouldPublish($article, $data)) {
+            $this->publish($article);
+        }
+    }
+
+    private function publish(Article $article): void
+    {
+        ($this->publishArticle)(
+            article: $article,
+        );
+    }
+
+    private function shouldPublish(Article $article, ArticleData $data): bool
+    {
+        return ! ($article->hasBeenPublished() || ! $data->published);
     }
 }

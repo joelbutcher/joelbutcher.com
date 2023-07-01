@@ -25,7 +25,7 @@ class SaveArticleListener implements ShouldQueue
         }
 
         ($this->saveArticle)(
-            articleData: ArticleData::fromEntry($event->entry),
+            data: ArticleData::fromEntry($event->entry),
         );
     }
 }

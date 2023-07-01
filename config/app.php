@@ -181,7 +181,7 @@ return [
         /*
          * Services Service Providers...
          */
-        App\Services\Medium\MediumServiceProvider::class,
+        App\Services\Hashnode\HashnodeServiceProvider::class,
         App\Services\Twitter\TwitterServiceProvider::class,
 
     ],
