@@ -178,6 +178,12 @@ return [
         App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Services Service Providers...
+         */
+        App\Services\Medium\MediumServiceProvider::class,
+        App\Services\Twitter\TwitterServiceProvider::class,
+
     ],
 
     /*

@@ -103,6 +103,7 @@ return [
      * to the chain. See https://symfony.com/doc/current/components/serializer.html#normalizers
      */
     'event_normalizers' => [
+        App\Support\Normalizers\CarbonImmutableNormalizer::class,
         Symfony\Component\Serializer\Normalizer\BackedEnumNormalizer::class,
         Spatie\EventSourcing\Support\CarbonNormalizer::class,
         Spatie\EventSourcing\Support\ModelIdentifierNormalizer::class,

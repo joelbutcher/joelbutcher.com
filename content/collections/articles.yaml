@@ -2,7 +2,7 @@ title: Articles
 template: articles/show
 layout: layout
 revisions: false
-route: '/blog/{slug}'
+route: '/articles/{slug}'
 date: true
 sort_dir: asc
 default_status: draft
@@ -12,7 +12,7 @@ date_behavior:
 preview_targets:
   -
     label: Entry
-    url: '/blog/{slug}'
+    url: '/articles/{slug}'
   -
     label: Index
-    url: /blog
+    url: /articles

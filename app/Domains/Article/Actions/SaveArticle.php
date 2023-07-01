@@ -2,10 +2,10 @@
 
 namespace App\Domains\Article\Actions;
 
-use App\Domains\Article\DataTransferObjects\ArticleData;
+use App\Domains\Article\DTOs\ArticleData;
 use App\Domains\Article\Projections\Article;
 
-class SaveArticle
+final readonly class SaveArticle
 {
     public function __construct(
         private CreateArticle $createArticle,
@@ -15,10 +15,10 @@ class SaveArticle
 
     public function __invoke(ArticleData $articleData): void
     {
-        $article = Article::uuid($articleData->uuid);
+        $article = Article::findByUuid($articleData->uuid);
 
         $article
-            ? $this->update(article: $article, articleData: $articleData)
+            ? $this->update(articleData: $articleData)
             : $this->create(articleData: $articleData);
     }
 
@@ -29,10 +29,9 @@ class SaveArticle
         );
     }
 
-    private function update(Article $article, ArticleData $articleData): void
+    private function update(ArticleData $articleData): void
     {
         ($this->updateArticle)(
-            article: $article,
             articleData: $articleData,
         );
     }

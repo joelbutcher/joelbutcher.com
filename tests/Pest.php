@@ -11,10 +11,6 @@
 |
 */
 
-use App\Domains\Article\Actions\CreateArticle;
-use App\Domains\Article\DataTransferObjects\ArticleData;
-use App\Domains\Article\Projections\Article;
-
 uses(Tests\TestCase::class)->in('Feature');
 
 /*
@@ -42,22 +38,3 @@ expect()->extend('toBeOne', function () {
 | global functions to help you to reduce the number of lines of code in your test files.
 |
 */
-
-function createArticle(): Article
-{
-    $data = [
-        'uuid' => '9f16f32e-0ebc-4265-9bf9-4c477edbcda2',
-        'title' => 'Why Laravel is Good',
-        'slug' => 'why-laravel-is-good',
-        'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget odio pretium dolor sodales tempor in id sapien.',
-        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget odio pretium dolor sodales tempor in id sapien.',
-        'published' => false,
-        'featuredImage' => '',
-    ];
-
-    return (new CreateArticle())(
-        articleData: new ArticleData(
-            ...$data,
-        ),
-    );
-}

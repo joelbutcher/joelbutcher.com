@@ -4,6 +4,6 @@ namespace App\Domains\Article\Enums;
 
 enum ArticleStatus: string
 {
-    case Unshared = 'unshared';
-    case Shared = 'shared';
+    case Draft = 'draft';
+    case Published = 'published';
 }

@@ -4,78 +4,71 @@ namespace App\Domains\Article\Projectors;
 
 use App\Domains\Article\Events\ArticleWasCreated;
 use App\Domains\Article\Events\ArticleWasDeleted;
-use App\Domains\Article\Events\ArticleWasShared;
+use App\Domains\Article\Events\ArticleWasPublished;
+use App\Domains\Article\Events\ArticleWasTweeted;
 use App\Domains\Article\Events\ArticleWasUpdated;
 use App\Domains\Article\Projections\Article;
-use App\Services\Twitter\Twitter;
-use App\Services\Twitter\TwitterRemoveTweet;
-use App\Services\Twitter\TwitterStatusUpdate;
+use Carbon\CarbonImmutable;
 use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 
 class ArticleProjector extends Projector
 {
-    public function __construct(private readonly Twitter $twitter)
-    {
-        //
-    }
-
     public function onArticleWasCreated(ArticleWasCreated $event): void
     {
         (new Article())->writeable()->create([
-            'uuid' => $event->articleUuid,
+            'uuid' => $event->uuid,
             'title' => $event->title,
             'slug' => $event->slug,
-            'featured_image' => $event->featuredImage,
             'excerpt' => $event->excerpt,
             'content' => $event->content,
-            'published' => $event->published,
+            'tags' => $event->tags,
+            'platforms' => $event->platforms,
+            'published_at' => $event->published ? CarbonImmutable::now() : null,
             'created_at' => $event->createdAt,
         ]);
     }
 
     public function onArticleWasUpdated(ArticleWasUpdated $event): void
     {
-        Article::uuid(uuid: $event->articleUuid)
-            ->writeable()
-            ->update([
-                'title' => $event->title,
-                'slug' => $event->slug,
-                'featured_image' => $event->featuredImage,
-                'excerpt' => $event->excerpt,
-                'content' => $event->content,
-                'published' => $event->published,
-                'updated_at' => $event->updatedAt,
-            ]);
+        $article = Article::findByUuid(uuid: $event->uuid)->writeable();
+
+        $article->update(array_merge([
+            'uuid' => $event->uuid,
+            'title' => $event->title,
+            'slug' => $event->slug,
+            'excerpt' => $event->excerpt,
+            'content' => $event->content,
+            'tags' => $event->tags,
+            'platforms' => $event->platforms,
+            'updated_at' => $event->updatedAt,
+        ], $article->hasBeenPublished() ? [] : [
+            'published_at' => $event->published ? CarbonImmutable::now() : null,
+        ]));
     }
 
-    public function onArticleWasShared(ArticleWasShared $event): void
+    public function onArticleWasPublished(ArticleWasPublished $event): void
     {
-        $article = Article::uuid(uuid: $event->articleUuid);
+        $article = Article::findByUuid(uuid: $event->uuid)->writeable();
 
-        $response = $this->twitter->post(
-            status: TwitterStatusUpdate::forNewArticle(
-                article: $article,
-            ),
-        );
+        $article->update([
+            'published_at' => $event->publishedAt,
+        ]);
+    }
 
-        // @todo save tweet id to article
-        $article->writeable()->update([
-            'shared_at' => $event->sharedAt,
-            'tweet_id' => $response['id'] ?? null,
+    public function onArticleWasTweeted(ArticleWasTweeted $event): void
+    {
+        $article = Article::findByUuid(uuid: $event->uuid)->writeable();
+
+        $article->update([
+            'tweet' => $event->tweet(),
+            'tweeted_at' => $event->tweetedAt,
         ]);
     }
 
     public function onArticleWasDeleted(ArticleWasDeleted $event): void
     {
-        tap(
-            value: Article::uuid(uuid: $event->articleUuid),
-            callback: function (Article $article) {
-                if ($article->tweet_id) {
-                    $this->twitter->removeTweet(removeTweet: TwitterRemoveTweet::forArticle($article));
-                }
+        $article = Article::findByUuid(uuid: $event->uuid);
 
-                $article->writeable()->delete();
-            },
-        );
+        $article->writeable()->delete();
     }
 }

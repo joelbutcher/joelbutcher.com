@@ -2,20 +2,22 @@
 
 namespace App\Domains\Article\Events;
 
-use Carbon\Carbon;
+use Carbon\CarbonImmutable;
 use Spatie\EventSourcing\StoredEvents\ShouldBeStored;
 
-class ArticleWasCreated extends ShouldBeStored
+final class ArticleWasCreated extends ShouldBeStored
 {
     public function __construct(
-        public readonly string $articleUuid,
+        public readonly string $uuid,
         public readonly string $title,
         public readonly string $slug,
         public readonly string $excerpt,
         public readonly ?string $content,
-        public readonly bool $published,
-        public readonly ?string $featuredImage,
-        public readonly ?Carbon $createdAt,
+        public readonly CarbonImmutable $createdAt,
+        public readonly bool $published = false,
+        public array $tags = [],
+        public array $platforms = [],
+        public bool $postToTwitter = false,
     ) {
     }
 }

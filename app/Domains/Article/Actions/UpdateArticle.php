@@ -3,19 +3,14 @@
 namespace App\Domains\Article\Actions;
 
 use App\Domains\Article\ArticleAggregate;
-use App\Domains\Article\DataTransferObjects\ArticleData;
-use App\Domains\Article\Projections\Article;
+use App\Domains\Article\DTOs\ArticleData;
 
-class UpdateArticle
+final readonly class UpdateArticle
 {
-    public function __invoke(Article $article, ArticleData $articleData): Article
+    public function __invoke(ArticleData $articleData): void
     {
-        ArticleAggregate::retrieve($articleData->uuid)->updateArticle(
+        ArticleAggregate::retrieve($articleData->uuid)->update(
             articleData: $articleData,
         )->persist();
-
-        $article = Article::uuid($articleData->uuid);
-
-        return $article->refresh();
     }
 }

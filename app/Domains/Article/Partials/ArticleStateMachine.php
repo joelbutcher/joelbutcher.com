@@ -4,27 +4,43 @@ namespace App\Domains\Article\Partials;
 
 use App\Domains\Article\ArticleAggregate;
 use App\Domains\Article\Enums\ArticleStatus;
-use App\Domains\Article\Events\ArticleWasShared;
+use App\Domains\Article\Events\ArticleWasPublished;
+use App\Domains\Article\Events\ArticleWasTweeted;
 use Spatie\EventSourcing\AggregateRoots\AggregatePartial;
 
-class ArticleStateMachine extends AggregatePartial
+final class ArticleStateMachine extends AggregatePartial
 {
-    private ArticleStatus $status;
-
-    public function __construct(ArticleAggregate $aggregate)
-    {
+    public function __construct(
+        ArticleAggregate $aggregate,
+        private ?string $tweet = null,
+        private ArticleStatus $status = ArticleStatus::Draft,
+    ) {
         parent::__construct($aggregate);
-        $this->status = ArticleStatus::Unshared;
     }
 
-    public function onArticleShared(ArticleWasShared $event): void
+    public function onArticleWasPublished(ArticleWasPublished $event): void
     {
-        $this->status = ArticleStatus::Shared;
+        $this->status = ArticleStatus::Published;
     }
 
-    public function isShared(): bool
+    public function onArticleTweeted(ArticleWasTweeted $event): void
     {
-        return $this->is(ArticleStatus::Shared);
+        $this->tweet = $event->tweetId;
+    }
+
+    public function isDraft(): bool
+    {
+        return $this->is(ArticleStatus::Draft);
+    }
+
+    public function isPublished(): bool
+    {
+        return $this->is(ArticleStatus::Published);
+    }
+
+    public function tweetSent(): bool
+    {
+        return ! is_null($this->tweet);
     }
 
     public function is(ArticleStatus ...$statuses): bool

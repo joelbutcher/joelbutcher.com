@@ -39,13 +39,29 @@ return [
 
     'twitter' => [
         'enabled' => env('TWITTER_ENABLED'),
-        'client_id' => env('TWITTER_CLIENT_ID'),
-        'client_secret' => env('TWITTER_CLIENT_SECRET'),
-        'redirect' => env('TWITTER_REDIRECT', 'https://joelbutcher.com.test/oauth/twitter-oauth-2/callback'),
 
-        'consumer_key' => env('TWITTER_CONSUMER_KEY', 'my-twitter-consumer-key'),
-        'consumer_secret' => env('TWITTER_CONSUMER_SECRET', 'my-twitter-consumer-secret'),
-        'access_token' => env('TWITTER_ACCESS_TOKEN', 'my-twitter-access-token'),
-        'access_secret' => env('TWITTER_ACCESS_SECRET', 'my-twitter-access-secret'),
+        'consumer_key' => env('TWITTER_CONSUMER_KEY'),
+        'consumer_secret' => env('TWITTER_CONSUMER_SECRET'),
+        'access_token' => env('TWITTER_ACCESS_TOKEN'),
+        'access_secret' => env('TWITTER_ACCESS_SECRET'),
+    ],
+
+    'medium' => [
+        'enabled' => env('MEDIUM_ENABLED'),
+        'base_url' => env('MEDIUM_API_BASE_URL', 'https://api.medium.com/v1'),
+        'token' => env('MEDIUM_API_TOKEN'),
+        'user_id' => env('MEDIUM_USER_ID'),
+    ],
+
+    'hashnode' => [
+        'enabled' => env('HASHNODE_ENABLED'),
+        'base_url' => env('HASHNODE_API_BASE_URL', 'https://api.hashnode.com'),
+        'token' => env('HASHNODE_API_TOKEN'),
+    ],
+
+    'devto' => [
+        'enabled' => env('DEVTO_ENABLED'),
+        'base_url' => env('DEVTO_API_BASE_URL', 'https://dev.to/api'),
+        'token' => env('DEVTO_API_TOKEN'),
     ],
 ];

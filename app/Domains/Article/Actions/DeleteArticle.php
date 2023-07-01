@@ -3,13 +3,13 @@
 namespace App\Domains\Article\Actions;
 
 use App\Domains\Article\ArticleAggregate;
-use App\Domains\Article\Projections\Article;
+use App\Domains\Article\DTOs\ArticleData;
 
-class DeleteArticle
+final readonly class DeleteArticle
 {
-    public function __invoke(Article $article): void
+    public function __invoke(ArticleData $articleData): void
     {
-        ArticleAggregate::retrieve($article->uuid)
+        ArticleAggregate::retrieve($articleData->uuid)
             ->delete()
             ->persist();
     }

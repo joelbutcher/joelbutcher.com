@@ -2,7 +2,10 @@
 
 namespace App\Domains\Article\Projections;
 
-use Carbon\Carbon;
+use App\Services\Twitter\Casts\TweetCast;
+use App\Services\Twitter\DTOs\Tweet;
+use Carbon\CarbonImmutable;
+use Database\Factories\ArticleFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\EventSourcing\Projections\Projection;
@@ -13,12 +16,13 @@ use Spatie\EventSourcing\Projections\Projection;
  * @property string $slug
  * @property string $excerpt
  * @property ?string $content
- * @property bool $published
- * @property string $tweet_id
- * @property string|null $featured_image
- * @property Carbon|null $shared_at
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
+ * @property array $tags
+ * @property array $platforms
+ * @property ?Tweet $tweet
+ * @property CarbonImmutable|null $tweeted_at
+ * @property CarbonImmutable|null $published_at
+ * @property CarbonImmutable|null $created_at
+ * @property CarbonImmutable|null $updated_at
  */
 class Article extends Projection
 {
@@ -28,19 +32,41 @@ class Article extends Projection
     protected $guarded = [];
 
     protected $casts = [
-        'published' => 'boolean',
+        'published_at' => 'immutable_datetime',
+        'tags' => 'array',
+        'platforms' => 'array',
+        'tweet' => TweetCast::class,
     ];
 
-    public function hasBeenShared(): bool
+    public function hasBeenPublished(): bool
     {
-        return null !== $this->shared_at;
+        return ! is_null($this->published_at);
     }
 
-    public static function uuid(string $uuid): ?Article
+    public function hasBeenTweeted(): bool
+    {
+        return ! is_null($this->tweeted_at);
+    }
+
+    public static function findByUuid(string $uuid): ?Article
     {
         /** @var Article $article */
         $article = self::query()->where('uuid', $uuid)->first();
 
         return $article;
+    }
+
+    protected static function newFactory(): ArticleFactory
+    {
+        return ArticleFactory::new();
+    }
+
+    public function composeTweet(): string
+    {
+        return sprintf(
+            '%s %s',
+            $this->title,
+            config('app.url') . '/blog/' . $this->slug,
+        );
     }
 }

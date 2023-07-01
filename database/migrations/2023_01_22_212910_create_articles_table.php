@@ -14,10 +14,11 @@ return new class extends Migration
             $table->string('slug');
             $table->text('excerpt');
             $table->text('content');
-            $table->boolean('published')->default(false);
-            $table->string('tweet_id')->nullable();
-            $table->string('featured_image')->nullable();
-            $table->timestamp('shared_at')->nullable();
+            $table->jsonb('tags')->default('[]');
+            $table->jsonb('platforms')->default('[]');
+            $table->jsonb('tweet')->nullable();
+            $table->timestamp('tweeted_at')->nullable();
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }

@@ -1,84 +1,133 @@
 title: Article
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: title
-        field:
-          type: text
-          required: true
-          validate:
-            - required
-      -
-        handle: excerpt
-        field:
-          antlers: false
-          display: Excerpt
-          type: textarea
-          icon: textarea
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-          validate:
-            - required
-      -
-        handle: content
-        field:
-          container: assets
-          folder: images
-          restrict: false
-          automatic_line_breaks: true
-          automatic_links: false
-          escape_markup: false
-          smartypants: false
-          antlers: true
-          display: Content
-          type: markdown
-          icon: markdown
-          listable: hidden
-          instructions_position: above
-          visibility: visible
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: excerpt
+            field:
+              antlers: false
+              display: Excerpt
+              type: textarea
+              icon: textarea
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: false
+              validate:
+                - required
+          -
+            handle: content
+            field:
+              container: assets
+              folder: images
+              restrict: false
+              automatic_line_breaks: true
+              automatic_links: false
+              escape_markup: false
+              smartypants: false
+              antlers: true
+              display: Content
+              type: markdown
+              icon: markdown
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+          -
+            handle: tags
+            field:
+              type: taggable
+              display: Tags
+              icon: tags
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
   sidebar:
     display: Sidebar
-    fields:
+    sections:
       -
-        handle: slug
-        field:
-          type: slug
-          localizable: true
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+              instructions_position: above
+              listable: hidden
+              visibility: visible
+              always_save: false
+              mode: single
+              time_enabled: false
+              time_seconds_enabled: false
+              full_width: false
+              inline: false
+              columns: 1
+              rows: 1
+          -
+            handle: featured
+            field:
+              default: false
+              display: Featured
+              type: toggle
+              icon: toggle
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: false
       -
-        handle: date
-        field:
-          type: date
-          required: true
-          validate:
-            - required
-          instructions_position: above
-          listable: hidden
-          visibility: visible
-          always_save: false
-          mode: single
-          time_enabled: false
-          time_seconds_enabled: false
-          full_width: false
-          inline: false
-          columns: 1
-          rows: 1
-      -
-        handle: featured
-        field:
-          default: false
-          display: Featured
-          type: toggle
-          icon: toggle
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
+        display: Sharing
+        fields:
+          -
+            handle: post_to_twitter
+            field:
+              default: false
+              type: toggle
+              display: 'Post to Twitter'
+              icon: toggle
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              duplicate: false
+              hide_display: false
+          -
+            handle: platforms
+            field:
+              options:
+                medium: Medium
+                hashnode: Hashnode
+                devto: Dev.to
+              inline: false
+              type: checkboxes
+              display: Platforms
+              icon: checkboxes
+              instructions: 'Choose which platforms you wish to also share this article to'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              duplicate: false
+              hide_display: false
   seo:
     display: SEO
-    fields:
+    sections:
       -
-        import: metatags
+        fields:
+          -
+            import: metatags

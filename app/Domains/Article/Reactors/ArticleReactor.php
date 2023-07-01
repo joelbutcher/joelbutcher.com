@@ -2,55 +2,77 @@
 
 namespace App\Domains\Article\Reactors;
 
-use App\Domains\Article\Actions\ShareArticle;
+use App\Domains\Article\Actions\PublishArticle;
+use App\Domains\Article\Actions\TweetArticle;
 use App\Domains\Article\Events\ArticleWasCreated;
 use App\Domains\Article\Events\ArticleWasUpdated;
 use App\Domains\Article\Projections\Article;
+use App\Services\Twitter\Facades\Twitter;
 use Spatie\EventSourcing\EventHandlers\Reactors\Reactor;
 
 class ArticleReactor extends Reactor
 {
     public function __construct(
-        private readonly ShareArticle $shareArticle
+        private readonly PublishArticle $publishArticle,
+        private readonly TweetArticle $tweetArticle
     ) {
     }
 
     public function onArticleWasCreated(ArticleWasCreated $event): void
     {
-        // We only care about sharing if the
-        // article is being published.
         if (! $event->published) {
             return;
         }
 
-        ($this->shareArticle)(
-            article: $this->findArticle($event->articleUuid),
+        ($this->publishArticle)(
+            article: Article::findByUuid($event->uuid),
         );
     }
 
     public function onArticleWasUpdated(ArticleWasUpdated $event): void
     {
-        // We only care about sharing if the
-        // article is being published.
-        if (! $event->published) {
-            return;
+        $article = Article::findByUuid($event->uuid);
+
+        if ($this->shouldPublish($event, $article)) {
+            ($this->publishArticle)(
+                article: $article,
+            );
         }
 
-        $article = $this->findArticle($event->articleUuid);
-
-        // Article has already been shared.
-        if ($article->hasBeenShared()) {
-            return;
+        if ($this->shouldTweet($event, $article)) {
+            ($this->tweetArticle)(
+                article: $article
+            );
         }
-
-        // Article requires sharing.
-        ($this->shareArticle)(
-            article: $article
-        );
     }
 
-    private function findArticle(string $uuid): Article
+    private function shouldPublish(ArticleWasUpdated $event, ?Article $article): bool
     {
-        return Article::uuid($uuid);
+        if (! $event->published) {
+            return false;
+        }
+
+        if ($article->hasBeenPublished()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private function shouldTweet(ArticleWasUpdated $event, ?Article $article): bool
+    {
+        if (! Twitter::enabled()) {
+            return false;
+        }
+
+        if (! $event->postToTwitter) {
+            return false;
+        }
+
+        if ($article->hasBeenTweeted()) {
+            return false;
+        }
+
+        return true;
     }
 }
