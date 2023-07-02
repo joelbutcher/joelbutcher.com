@@ -10,7 +10,7 @@ final readonly class UpdateArticle
     public function __invoke(ArticleData $data): void
     {
         ArticleAggregate::retrieve($data->uuid)->update(
-            articleData: $data,
+            data: $data,
         )->persist();
     }
 }

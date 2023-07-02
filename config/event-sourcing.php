@@ -31,7 +31,6 @@ return [
      * Reactors can be registered in this array or a service provider.
      */
     'reactors' => [
-        \App\Domains\Article\Reactors\ArticleReactor::class,
     ],
 
     /*

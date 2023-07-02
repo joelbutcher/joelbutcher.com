@@ -63,10 +63,19 @@ class Article extends Projection
 
     public function composeTweet(): string
     {
+        $intro = "📝 New blog post: $this->title";
+
+        $tags = collect($this->tags)->map(fn (string $tag) => "#$tag")->implode(' ');
+
+        return "$intro\n\n{$this->url()}\n\n$tags";
+    }
+
+    public function url(): string
+    {
         return sprintf(
-            '%s %s',
-            $this->title,
-            config('app.url') . '/blog/' . $this->slug,
+            '%s/articles/%s',
+            config('app.url'),
+            $this->slug,
         );
     }
 }

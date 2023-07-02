@@ -2,9 +2,10 @@
 
 namespace App\Services\Twitter\Facades;
 
+use App\Services\Twitter\Contracts\TwitterServiceInterface;
 use App\Services\Twitter\DTOs\Profile;
 use App\Services\Twitter\DTOs\Tweet;
-use App\Services\Twitter\TwitterManager;
+use App\Services\Twitter\Services\TwitterService;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -13,12 +14,13 @@ use Illuminate\Support\Facades\Facade;
  * @method static Tweet sendTweet(string $content);
  * @method static void deleteTweet(string $id);
  *
- * @see TwitterManager
+ * @see TwitterService
+ * @see TwitterServiceInterface
  */
 class Twitter extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return TwitterManager::class;
+        return TwitterServiceInterface::class;
     }
 }

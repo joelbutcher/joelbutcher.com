@@ -11,6 +11,7 @@ final readonly class SaveArticle
         private CreateArticle $createArticle,
         private UpdateArticle $updateArticle,
         private PublishArticle $publishArticle,
+        private TweetArticle $tweetArticle,
     ) {
     }
 
@@ -31,6 +32,10 @@ final readonly class SaveArticle
 
         if ($this->shouldPublish($article, $data)) {
             $this->publish($article);
+
+            if ($this->shouldTweet($article, $data)) {
+                $this->tweet($article);
+            }
         }
     }
 
@@ -42,6 +47,10 @@ final readonly class SaveArticle
 
         if ($this->shouldPublish($article, $data)) {
             $this->publish($article);
+
+            if ($this->shouldTweet($article, $data)) {
+                $this->tweet($article);
+            }
         }
     }
 
@@ -52,8 +61,20 @@ final readonly class SaveArticle
         );
     }
 
+    private function tweet(Article $article): void
+    {
+        ($this->tweetArticle)(
+            article: $article,
+        );
+    }
+
     private function shouldPublish(Article $article, ArticleData $data): bool
     {
         return ! ($article->hasBeenPublished() || ! $data->published);
+    }
+
+    private function shouldTweet(Article $article, ArticleData $data): bool
+    {
+        return $data->postToTwitter && ! $article->hasBeenTweeted();
     }
 }

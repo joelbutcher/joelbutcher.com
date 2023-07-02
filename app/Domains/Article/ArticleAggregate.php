@@ -23,37 +23,37 @@ class ArticleAggregate extends AggregateRoot
         $this->state = new ArticleStateMachine($this);
     }
 
-    public static function create(ArticleData $articleData): self
+    public static function create(ArticleData $data): self
     {
-        $article = self::retrieve($articleData->uuid);
+        $article = self::retrieve($data->uuid);
 
         $article->recordThat(new ArticleWasCreated(
-            uuid: $articleData->uuid,
-            title: $articleData->title,
-            slug: $articleData->slug,
-            excerpt: $articleData->excerpt,
-            content: $articleData->content,
+            uuid: $data->uuid,
+            title: $data->title,
+            slug: $data->slug,
+            excerpt: $data->excerpt,
+            content: $data->content,
             createdAt: CarbonImmutable::now(),
-            tags: $articleData->tags,
-            platforms: $articleData->platforms,
-            postToTwitter: $articleData->postToTwitter,
+            tags: $data->tags,
+            platforms: $data->platforms,
+            postToTwitter: $data->postToTwitter,
         ));
 
         return $article;
     }
 
-    public function update(ArticleData $articleData): self
+    public function update(ArticleData $data): self
     {
         $this->recordThat(new ArticleWasUpdated(
             uuid: $this->uuid(),
-            title: $articleData->title,
-            slug: $articleData->slug,
-            excerpt: $articleData->excerpt,
-            content: $articleData->content,
+            title: $data->title,
+            slug: $data->slug,
+            excerpt: $data->excerpt,
+            content: $data->content,
             updatedAt: CarbonImmutable::now(),
-            tags: $articleData->tags,
-            platforms: $articleData->platforms,
-            postToTwitter: $articleData->postToTwitter,
+            tags: $data->tags,
+            platforms: $data->platforms,
+            postToTwitter: $data->postToTwitter,
         ));
 
         return $this;
@@ -76,7 +76,7 @@ class ArticleAggregate extends AggregateRoot
         return $this;
     }
 
-    public function articleTeeeted(Tweet $tweet): self
+    public function tweeted(Tweet $tweet): self
     {
         if ($this->state->isDraft()) {
             throw ArticleException::tweetCannotBeSent(
@@ -96,7 +96,10 @@ class ArticleAggregate extends AggregateRoot
             uuid: $this->uuid(),
             tweetId: $tweet->id,
             tweetContent: $tweet->content,
+            tweetedAt: CarbonImmutable::now(),
         ));
+
+        return $this;
     }
 
     public function delete(): self

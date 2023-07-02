@@ -11,7 +11,7 @@ final readonly class CreateArticle
     public function __invoke(ArticleData $data): Article
     {
         ArticleAggregate::create(
-            articleData: $data,
+            data: $data,
         )->persist();
 
         return Article::findByUuid($data->uuid);

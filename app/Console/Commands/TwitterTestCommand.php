@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Services\Twitter\TwitterManager;
+use App\Services\Twitter\Contracts\TwitterServiceInterface;
 use Illuminate\Console\Command;
 
 class TwitterTestCommand extends Command
@@ -10,7 +10,7 @@ class TwitterTestCommand extends Command
     protected $signature = 'twitter:test';
 
     public function __construct(
-        private readonly TwitterManager $twitter,
+        private readonly TwitterServiceInterface $twitter,
     ) {
         parent::__construct();
     }
@@ -20,8 +20,6 @@ class TwitterTestCommand extends Command
         $tweet = $this->twitter->sendTweet(
             content: 'Hello world!',
         );
-
-        dd($tweet);
 
         $this->twitter->deleteTweet(
             tweet: $tweet,

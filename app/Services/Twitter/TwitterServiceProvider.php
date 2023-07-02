@@ -4,25 +4,31 @@ namespace App\Services\Twitter;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Http\Integrations\Twitter\TwitterConnector;
+use App\Services\Twitter\Contracts\TwitterServiceInterface;
+use App\Services\Twitter\Services\LoggingTwitterService;
+use App\Services\Twitter\Services\TwitterService;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
 class TwitterServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->bind(
-            abstract: TwitterOAuth::class,
-            concrete: fn (Application $app) => new TwitterOAuth(
-                consumerKey: config('services.twitter.consumer_key', ''),
-                consumerSecret: config('services.twitter.consumer_secret', ''),
-                oauthToken: config('services.twitter.access_token', ''),
-                oauthTokenSecret: config('services.twitter.access_secret', ''),
-            ),
-        );
+        $this->registerTwitterService();
+    }
 
-        $this->app->alias(TwitterManager::class, 'twitter');
+    private function registerTwitterService(): void
+    {
+        if (App::isLocal()) {
+            $this->app->bind(TwitterServiceInterface::class, LoggingTwitterService::class);
+            $this->app->alias(TwitterServiceInterface::class, 'twitter');
+            return;
+        }
+
+        $this->app->bind(TwitterServiceInterface::class, TwitterService::class);
+        $this->app->alias(TwitterServiceInterface::class, 'twitter');
 
         $this->app->bind(
             abstract: TwitterConnector::class,
