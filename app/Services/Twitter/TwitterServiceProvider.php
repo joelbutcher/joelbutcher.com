@@ -2,13 +2,11 @@
 
 namespace App\Services\Twitter;
 
-use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Http\Integrations\Twitter\TwitterConnector;
 use App\Services\Twitter\Contracts\TwitterServiceInterface;
 use App\Services\Twitter\Services\LoggingTwitterService;
 use App\Services\Twitter\Services\TwitterService;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,6 +22,7 @@ class TwitterServiceProvider extends ServiceProvider
         if (App::isLocal()) {
             $this->app->bind(TwitterServiceInterface::class, LoggingTwitterService::class);
             $this->app->alias(TwitterServiceInterface::class, 'twitter');
+
             return;
         }
 

@@ -11,8 +11,6 @@ use App\Http\Integrations\Twitter\TwitterConnector;
 use App\Services\Twitter\Contracts\TwitterServiceInterface;
 use App\Services\Twitter\DTOs\Profile;
 use App\Services\Twitter\DTOs\Tweet;
-use Illuminate\Support\Arr;
-use RuntimeException;
 
 readonly class TwitterService implements TwitterServiceInterface
 {
