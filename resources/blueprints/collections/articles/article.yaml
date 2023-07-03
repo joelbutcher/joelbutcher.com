@@ -35,6 +35,9 @@ tabs:
               instructions_position: above
               visibility: visible
               hide_display: false
+              validate:
+                - array
+                - 'max:4'
           -
             handle: content
             field:
@@ -111,7 +114,6 @@ tabs:
             handle: platforms
             field:
               options:
-                medium: Medium
                 hashnode: Hashnode
                 devto: Dev.to
               inline: false

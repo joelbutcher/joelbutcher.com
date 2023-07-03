@@ -13,7 +13,7 @@ class HashnodeServiceProvider extends ServiceProvider
             apiToken: config('services.hashnode.token'),
         ));
 
-        $this->app->alias(HashnodeManager::class, 'hashnode');
+        $this->app->alias(HashnodeService::class, 'hashnode');
         $this->app->alias(HashnodeConnector::class, 'hashnode.connector');
     }
 }

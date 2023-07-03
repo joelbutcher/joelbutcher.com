@@ -62,6 +62,6 @@ return [
     'devto' => [
         'enabled' => env('DEVTO_ENABLED'),
         'base_url' => env('DEVTO_API_BASE_URL', 'https://dev.to/api'),
-        'token' => env('DEVTO_API_TOKEN'),
+        'token' => env('DEVTO_API_KEY'),
     ],
 ];

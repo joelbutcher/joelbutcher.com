@@ -8,73 +8,39 @@ use App\Domains\Article\Projections\Article;
 final readonly class SaveArticle
 {
     public function __construct(
-        private CreateArticle $createArticle,
-        private UpdateArticle $updateArticle,
-        private PublishArticle $publishArticle,
         private TweetArticle $tweetArticle,
+        private CreateArticle $createArticle = new CreateArticle(),
+        private UpdateArticle $updateArticle = new UpdateArticle(),
+        private PublishArticle $publishArticle = new PublishArticle(),
     ) {
     }
 
     public function __invoke(ArticleData $data): void
     {
-        $article = Article::findByUuid($data->uuid);
+        // If the article already exists, update it, otherwise create it.
+        $article = Article::findByUuid($data->uuid)
+            ? ($this->updateArticle)(data: $data)
+            : ($this->createArticle)(data: $data);
 
-        $article
-            ? $this->update($article, $data)
-            : $this->create($data);
-    }
-
-    private function create(ArticleData $data): void
-    {
-        $article = ($this->createArticle)(
-            data: $data
-        );
-
-        if ($this->shouldPublish($article, $data)) {
-            $this->publish($article);
-
-            if ($this->shouldTweet($article, $data)) {
-                $this->tweet($article);
-            }
+        // Article has already been published, no need to publish it again.
+        if ($article->hasBeenPublished || !$data->published) {
+            return;
         }
-    }
 
-    private function update(Article $article, ArticleData $data): void
-    {
-        ($this->updateArticle)(
-            data: $data,
-        );
-
-        if ($this->shouldPublish($article, $data)) {
-            $this->publish($article);
-
-            if ($this->shouldTweet($article, $data)) {
-                $this->tweet($article);
-            }
-        }
-    }
-
-    private function publish(Article $article): void
-    {
+        // Publish the article.
         ($this->publishArticle)(
-            article: $article,
+            $article,
+            ...$data->platforms,
         );
-    }
 
-    private function tweet(Article $article): void
-    {
+        // Article has already been tweeted, no need to tweet it again.
+        if ($article->hasBeenTweeted || !$data->postToTwitter) {
+            return;
+        }
+
+        // Tweet the article.
         ($this->tweetArticle)(
             article: $article,
         );
-    }
-
-    private function shouldPublish(Article $article, ArticleData $data): bool
-    {
-        return ! ($article->hasBeenPublished() || ! $data->published);
-    }
-
-    private function shouldTweet(Article $article, ArticleData $data): bool
-    {
-        return $data->postToTwitter && ! $article->hasBeenTweeted();
     }
 }

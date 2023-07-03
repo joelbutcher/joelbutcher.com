@@ -3,6 +3,7 @@
 namespace App\Domains\Article;
 
 use App\Domains\Article\DTOs\ArticleData;
+use App\Domains\Article\Enums\Platform;
 use App\Domains\Article\Events\ArticleWasCreated;
 use App\Domains\Article\Events\ArticleWasDeleted;
 use App\Domains\Article\Events\ArticleWasPublished;
@@ -31,6 +32,7 @@ class ArticleAggregate extends AggregateRoot
             uuid: $data->uuid,
             title: $data->title,
             slug: $data->slug,
+            series: $data->series,
             excerpt: $data->excerpt,
             content: $data->content,
             createdAt: CarbonImmutable::now(),
@@ -48,6 +50,7 @@ class ArticleAggregate extends AggregateRoot
             uuid: $this->uuid(),
             title: $data->title,
             slug: $data->slug,
+            series: $data->series,
             excerpt: $data->excerpt,
             content: $data->content,
             updatedAt: CarbonImmutable::now(),
@@ -59,7 +62,7 @@ class ArticleAggregate extends AggregateRoot
         return $this;
     }
 
-    public function publish(): self
+    public function publish(Platform ...$platforms): self
     {
         if ($this->state->isPublished()) {
             throw ArticleException::articleCannotBePublished(
@@ -69,8 +72,9 @@ class ArticleAggregate extends AggregateRoot
         }
 
         $this->recordThat(new ArticleWasPublished(
-            uuid: $this->uuid(),
-            publishedAt: CarbonImmutable::now(),
+            $this->uuid(),
+            CarbonImmutable::now(),
+            ...$platforms
         ));
 
         return $this;

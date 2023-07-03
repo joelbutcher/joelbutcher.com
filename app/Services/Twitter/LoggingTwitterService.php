@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Services\Twitter\Services;
+namespace App\Services\Twitter;
 
 use App\Services\Twitter\Contracts\TwitterServiceInterface;
-use App\Services\Twitter\DTOs\Profile;
+use App\Services\Twitter\DTOs\TwitterProfile;
 use App\Services\Twitter\DTOs\Tweet;
 use Faker\Factory;
 use Faker\Generator;
@@ -11,10 +11,10 @@ use Illuminate\Log\LogManager;
 
 class LoggingTwitterService implements TwitterServiceInterface
 {
-    private readonly Generator $faker;
+    private Generator $faker;
 
     public function __construct(
-        private LogManager $logger,
+        private readonly LogManager $logger,
     ) {
         $this->faker = Factory::create();
     }
@@ -24,9 +24,9 @@ class LoggingTwitterService implements TwitterServiceInterface
         return true;
     }
 
-    public function profile(): Profile
+    public function profile(): TwitterProfile
     {
-        return new Profile(
+        return new TwitterProfile(
             id: $this->faker->uuid(),
             name: $this->faker->name(),
             username: $this->faker->userName(),

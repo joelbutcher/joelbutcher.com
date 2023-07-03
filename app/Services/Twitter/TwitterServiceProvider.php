@@ -4,8 +4,6 @@ namespace App\Services\Twitter;
 
 use App\Http\Integrations\Twitter\TwitterConnector;
 use App\Services\Twitter\Contracts\TwitterServiceInterface;
-use App\Services\Twitter\Services\LoggingTwitterService;
-use App\Services\Twitter\Services\TwitterService;
 use GuzzleHttp\Subscriber\Oauth\Oauth1;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;

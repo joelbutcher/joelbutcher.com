@@ -12,7 +12,7 @@ class DevToConnector extends Connector
     public function __construct(
         protected string $apiToken,
     ) {
-        $this->withTokenAuth($this->apiToken, 'api-key');
+        $this->headers()->add('api-key', $this->apiToken);
     }
 
     public function resolveBaseUrl(): string
@@ -23,6 +23,7 @@ class DevToConnector extends Connector
     protected function defaultHeaders(): array
     {
         return [
+            'Accept' => 'application/vnd.forem.api-v1+json',
             'Content-Type' => 'application/json',
         ];
     }

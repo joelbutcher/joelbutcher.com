@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Twitter\Services;
+namespace App\Services\Twitter;
 
 use App\Http\Integrations\Twitter\Requests\DeleteTweetRequest;
 use App\Http\Integrations\Twitter\Requests\GetProfileRequest;
@@ -9,7 +9,7 @@ use App\Http\Integrations\Twitter\Responses\GetProfileResponse;
 use App\Http\Integrations\Twitter\Responses\SendTweetResponse;
 use App\Http\Integrations\Twitter\TwitterConnector;
 use App\Services\Twitter\Contracts\TwitterServiceInterface;
-use App\Services\Twitter\DTOs\Profile;
+use App\Services\Twitter\DTOs\TwitterProfile;
 use App\Services\Twitter\DTOs\Tweet;
 
 readonly class TwitterService implements TwitterServiceInterface
@@ -24,14 +24,14 @@ readonly class TwitterService implements TwitterServiceInterface
         return config('services.twitter.enabled');
     }
 
-    public function profile(): Profile
+    public function profile(): TwitterProfile
     {
         /** @var GetProfileResponse $response */
         $response = $this->connector->send(
             request: GetProfileRequest::make(),
         );
 
-        return Profile::fromResponse($response);
+        return TwitterProfile::fromResponse($response);
     }
 
     public function sendTweet(string $content): Tweet

@@ -2,16 +2,16 @@
 
 namespace App\Services\Hashnode\Facades;
 
-use App\Services\Hashnode\HashnodeManager;
+use App\Services\Hashnode\HashnodeService;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see HashnodeManager
+ * @see HashnodeService
  */
 class Hashnode extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return HashnodeManager::class;
+        return HashnodeService::class;
     }
 }

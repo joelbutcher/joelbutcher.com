@@ -2,23 +2,34 @@
 
 namespace App\Domains\Article\Projections;
 
+use App\Domains\Article\Casts\PlatformsCast;
+use App\Domains\Article\DTOs\ArticleData;
+use App\Domains\Article\Enums\Platform;
 use App\Services\Twitter\Casts\TweetCast;
 use App\Services\Twitter\DTOs\Tweet;
+use App\Services\Twitter\TweetComposer;
 use Carbon\CarbonImmutable;
 use Database\Factories\ArticleFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
 use Spatie\EventSourcing\Projections\Projection;
 
 /**
  * @property string $uuid
  * @property string $title
  * @property string $slug
+ * @property ?string $series
  * @property string $excerpt
  * @property ?string $content
  * @property array $tags
- * @property array $platforms
+ * @property Collection<Platform> $platforms
  * @property ?Tweet $tweet
+ * @property ?array $devto_response
+ * @property ?array $hashnode_response
+ * @property bool hasBeenPublished
+ * @property bool hasBeenTweeted
  * @property CarbonImmutable|null $tweeted_at
  * @property CarbonImmutable|null $published_at
  * @property CarbonImmutable|null $created_at
@@ -32,20 +43,23 @@ class Article extends Projection
     protected $guarded = [];
 
     protected $casts = [
-        'published_at' => 'immutable_datetime',
         'tags' => 'array',
-        'platforms' => 'array',
+        'platforms' => PlatformsCast::class,
         'tweet' => TweetCast::class,
+        'devto_response' => 'array',
+        'hashnode_response' => 'array',
+        'published_at' => 'immutable_datetime',
+        'tweeted_at' => 'immutable_datetime',
     ];
 
-    public function hasBeenPublished(): bool
+    public function hasBeenPublished(): Attribute
     {
-        return ! is_null($this->published_at);
+        return Attribute::get(fn () => ! is_null($this->published_at));
     }
 
-    public function hasBeenTweeted(): bool
+    public function hasBeenTweeted(): Attribute
     {
-        return ! is_null($this->tweeted_at);
+        return Attribute::get(fn () => ! is_null($this->tweeted_at));
     }
 
     public static function findByUuid(string $uuid): ?Article
@@ -63,19 +77,11 @@ class Article extends Projection
 
     public function composeTweet(): string
     {
-        $intro = "📝 New blog post: $this->title";
-
-        $tags = collect($this->tags)->map(fn (string $tag) => "#$tag")->implode(' ');
-
-        return "$intro\n\n{$this->url()}\n\n$tags";
+        return TweetComposer::compose($this->title, $this->slug, $this->tags);
     }
 
-    public function url(): string
+    public function toDto(): ArticleData
     {
-        return sprintf(
-            '%s/articles/%s',
-            config('app.url'),
-            $this->slug,
-        );
+        return ArticleData::fromModel($this);
     }
 }

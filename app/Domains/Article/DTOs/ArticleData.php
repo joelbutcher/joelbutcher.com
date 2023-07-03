@@ -3,14 +3,20 @@
 namespace App\Domains\Article\DTOs;
 
 use App\Domains\Article\Enums\Platform;
+use App\Domains\Article\Projections\Article;
 use Statamic\Entries\Entry;
 
 readonly class ArticleData
 {
+    /**
+     * @param array<string> $tags
+     * @param array<Platform> $platforms
+     */
     public function __construct(
         public string $uuid,
         public string $title,
         public string $slug,
+        public ?string $series,
         public string $excerpt,
         public ?string $content,
         public bool $published = false,
@@ -26,6 +32,7 @@ readonly class ArticleData
             uuid: $entry->id(),
             title: $entry->get('title'),
             slug: $entry->slug(),
+            series: $entry->get('series'),
             excerpt: $entry->get('excerpt'),
             content: $entry->get('content'),
             published: $entry->published(),
@@ -35,6 +42,22 @@ readonly class ArticleData
                 array: $entry->get('platforms', []),
             ),
             postToTwitter: $entry->get('post_to_twitter', false),
+        );
+    }
+
+    public static function fromModel(Article $article): self
+    {
+        return new self(
+            uuid: $article->uuid,
+            title: $article->title,
+            slug: $article->slug,
+            series: null,
+            excerpt: $article->excerpt,
+            content: $article->content,
+            published: $article->hasBeenPublished,
+            tags: $article->tags,
+            platforms: $article->platforms->toArray(),
+            postToTwitter: $article->hasBeenTweeted,
         );
     }
 }

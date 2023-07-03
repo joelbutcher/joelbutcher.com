@@ -19,6 +19,7 @@ class ArticleProjector extends Projector
             'uuid' => $event->uuid,
             'title' => $event->title,
             'slug' => $event->slug,
+            'series' => $event->series,
             'excerpt' => $event->excerpt,
             'content' => $event->content,
             'tags' => $event->tags,
@@ -36,33 +37,34 @@ class ArticleProjector extends Projector
             'uuid' => $event->uuid,
             'title' => $event->title,
             'slug' => $event->slug,
+            'series' => $event->series,
             'excerpt' => $event->excerpt,
             'content' => $event->content,
             'tags' => $event->tags,
             'platforms' => $event->platforms,
             'updated_at' => $event->updatedAt,
-        ], $article->hasBeenPublished() ? [] : [
+        ], $article->hasBeenPublished ? [] : [
             'published_at' => $event->published ? CarbonImmutable::now() : null,
         ]));
     }
 
     public function onArticleWasPublished(ArticleWasPublished $event): void
     {
-        $article = Article::findByUuid(uuid: $event->uuid)->writeable();
-
-        $article->update([
-            'published_at' => $event->publishedAt,
-        ]);
+        Article::findByUuid(uuid: $event->uuid)
+            ->writeable()
+            ->update([
+                'published_at' => $event->publishedAt,
+            ]);
     }
 
     public function onArticleWasTweeted(ArticleWasTweeted $event): void
     {
-        $article = Article::findByUuid(uuid: $event->uuid)->writeable();
-
-        $article->update([
-            'tweet' => $event->tweet(),
-            'tweeted_at' => $event->tweetedAt,
-        ]);
+        Article::findByUuid(uuid: $event->uuid)
+            ->writeable()
+            ->update([
+                'tweet' => $event->tweet(),
+                'tweeted_at' => $event->tweetedAt,
+            ]);
     }
 
     public function onArticleWasDeleted(ArticleWasDeleted $event): void

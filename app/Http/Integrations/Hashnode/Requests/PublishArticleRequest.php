@@ -3,17 +3,20 @@
 namespace App\Http\Integrations\Hashnode\Requests;
 
 use App\Domains\Article\DTOs\ArticleData;
+use App\Http\Integrations\Hashnode\Responses\PublishArticleResponse;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
-class PostArticleRequest extends Request
+class PublishArticleRequest extends Request
 {
+    protected Method $method = Method::POST;
+
+    protected ?string $response = PublishArticleResponse::class;
+
     public function __construct(
-        private readonly ArticleData $articleData
+        private readonly ArticleData $article
     ) {
     }
-
-    protected Method $method = Method::POST;
 
     public function resolveEndpoint(): string
     {

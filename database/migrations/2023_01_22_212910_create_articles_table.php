@@ -12,11 +12,14 @@ return new class extends Migration
             $table->uuid()->primary();
             $table->string('title');
             $table->string('slug');
+            $table->string('series')->nullable();
             $table->text('excerpt');
             $table->text('content');
             $table->jsonb('tags')->default('[]');
             $table->jsonb('platforms')->default('[]');
             $table->jsonb('tweet')->nullable();
+            $table->text('devto_response')->nullable();
+            $table->text('hashnode_response')->nullable();
             $table->timestamp('tweeted_at')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();

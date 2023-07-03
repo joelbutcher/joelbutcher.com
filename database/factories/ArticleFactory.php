@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Concerns\SupportsProjections;
+use App\Domains\Article\Enums\Platform;
 use App\Domains\Article\Projections\Article;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -25,5 +26,13 @@ class ArticleFactory extends Factory
             'content' => $this->faker->paragraphs(asText: true),
             'slug' => Str::slug($title),
         ];
+    }
+
+    public function published(?Platform ...$platforms): self
+    {
+        return $this->state([
+            'published_at' => now(),
+            'platforms' => $platforms,
+        ]);
     }
 }

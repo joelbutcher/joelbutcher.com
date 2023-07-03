@@ -5,7 +5,7 @@ namespace App\Services\Twitter\DTOs;
 use App\Http\Integrations\Twitter\Responses\GetProfileResponse;
 use Illuminate\Contracts\Support\Arrayable;
 
-final readonly class Profile implements Arrayable
+final readonly class TwitterProfile implements Arrayable
 {
     public function __construct(
         public string $id,
