@@ -18,20 +18,20 @@ class HashnodeArticleReactor extends Reactor
 
     public function __invoke(ArticleWasPublished $event)
     {
+        if (! $this->service->enabled()) {
+            return;
+        }
+
         if (! in_array(Platform::Hashnode, $event->platforms)) {
             return;
         }
 
         $article = Article::findByUuid($event->uuid);
 
-        if (! $article->platforms->contains(Platform::Hashnode)) {
-            return;
-        }
-
         $hashnodeResponse = $this->service->publish($article->toDto());
 
         $article->writeable()->update([
-            'hashnode_response' => $hashnodeResponse->json()['id'],
+            'hashnode_response' => $hashnodeResponse->json(),
         ]);
 
         if (! $hashnodeResponse->successful()) {

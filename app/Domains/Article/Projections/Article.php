@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Spatie\EventSourcing\Projections\Projection;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
  * @property string $uuid
@@ -22,6 +23,7 @@ use Spatie\EventSourcing\Projections\Projection;
  * @property string $slug
  * @property ?string $series
  * @property string $excerpt
+ * @property ?string $image_path
  * @property ?string $content
  * @property array $tags
  * @property Collection<Platform> $platforms
@@ -39,6 +41,7 @@ class Article extends Projection
 {
     use HasFactory;
     use SoftDeletes;
+    use InteractsWithMedia;
 
     protected $guarded = [];
 

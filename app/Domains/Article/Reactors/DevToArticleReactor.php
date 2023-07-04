@@ -30,10 +30,6 @@ class DevToArticleReactor extends Reactor
 
         $article = Article::findByUuid($event->uuid);
 
-        if (! $article->platforms->contains(Platform::DevTo)) {
-            return;
-        }
-
         $devToResponse = $this->service->publish($article->toDto());
 
         $article->writeable()->update([

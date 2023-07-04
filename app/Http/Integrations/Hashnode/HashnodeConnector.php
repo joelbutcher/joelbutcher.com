@@ -12,7 +12,7 @@ class HashnodeConnector extends Connector
     public function __construct(
         protected string $apiToken,
     ) {
-        $this->withTokenAuth($this->apiToken);
+        $this->withTokenAuth($this->apiToken, prefix: '');
     }
 
     public function resolveBaseUrl(): string

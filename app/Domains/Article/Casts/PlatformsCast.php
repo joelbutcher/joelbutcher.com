@@ -10,13 +10,13 @@ use Illuminate\Support\Collection;
 class PlatformsCast implements CastsAttributes
 {
     /**
-     * @param string $value
+     * @param  string  $value
      * @return Collection<Platform>
      */
     public function get($model, string $key, $value, array $attributes): Collection
     {
         if (empty($value)) {
-            return [];
+            return Collection::make();
         }
 
         assert(is_string($value));
@@ -27,7 +27,7 @@ class PlatformsCast implements CastsAttributes
     }
 
     /**
-     * @param array<Platform> $value
+     * @param  array<Platform>  $value
      */
     public function set($model, string $key, $value, array $attributes): string
     {

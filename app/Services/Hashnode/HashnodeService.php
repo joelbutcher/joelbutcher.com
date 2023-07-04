@@ -14,6 +14,11 @@ final readonly class HashnodeService
     ) {
     }
 
+    public function enabled(): bool
+    {
+        return config('services.hashnode.enabled');
+    }
+
     public function publish(ArticleData $article): PublishArticleResponse
     {
         /** @var PublishArticleResponse */

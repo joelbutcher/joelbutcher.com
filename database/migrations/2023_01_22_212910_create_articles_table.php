@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('series')->nullable();
             $table->text('excerpt');
+            $table->string('image_path')->nullable();
             $table->text('content');
             $table->jsonb('tags')->default('[]');
             $table->jsonb('platforms')->default('[]');

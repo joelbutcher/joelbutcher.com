@@ -2,7 +2,6 @@
 
 use App\Domains\Article\Actions\SaveArticle;
 use App\Domains\Article\DTOs\ArticleData;
-use App\Domains\Article\Enums\Platform;
 use App\Domains\Article\Events\ArticleWasCreated;
 use App\Domains\Article\Events\ArticleWasPublished;
 use App\Domains\Article\Events\ArticleWasTweeted;
@@ -29,6 +28,7 @@ it('Creates a new article, publishes it and tweets it', function () {
         slug: $slug = fake()->slug,
         series: null,
         excerpt: fake()->paragraph(),
+        imagePath: null,
         content: fake()->paragraphs(asText: true),
         published: true,
         tags: $tags = ['foo', 'bar'],
@@ -99,6 +99,7 @@ it('Creates a new article, publishes it and does not tweet it', function () {
         slug: $slug = fake()->slug,
         series: null,
         excerpt: fake()->paragraph(),
+        imagePath: null,
         content: fake()->paragraphs(asText: true),
         published: true,
         tags: $tags = ['foo', 'bar'],
@@ -153,6 +154,7 @@ it('Creates a new article and does not publishes or tweet it', function () {
         slug: $slug = fake()->slug,
         series: null,
         excerpt: fake()->paragraph(),
+        imagePath: null,
         content: fake()->paragraphs(asText: true),
         published: false,
         tags: $tags = ['foo', 'bar'],
@@ -214,6 +216,7 @@ it('Update an existing article, publishes it and tweets it', function () {
         slug: $slug = fake()->slug,
         series: null,
         excerpt: fake()->paragraph(),
+        imagePath: null,
         content: fake()->paragraphs(asText: true),
         published: true,
         tags: $tags = ['foo', 'bar'],
@@ -287,6 +290,7 @@ it('Update an existing article, publishes it and does not tweet it', function ()
         slug: $slug = fake()->slug,
         series: null,
         excerpt: fake()->paragraph(),
+        imagePath: null,
         content: fake()->paragraphs(asText: true),
         published: true,
         tags: $tags = ['foo', 'bar'],
@@ -344,6 +348,7 @@ it('Update an existing article and does not publishes or tweet it', function () 
         slug: $slug = fake()->slug,
         series: null,
         excerpt: fake()->paragraph(),
+        imagePath: null,
         content: fake()->paragraphs(asText: true),
         published: false,
         tags: $tags = ['foo', 'bar'],

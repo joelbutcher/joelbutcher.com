@@ -7,9 +7,9 @@ use App\Domains\Article\DTOs\ArticleData;
 
 final readonly class DeleteArticle
 {
-    public function __invoke(ArticleData $articleData): void
+    public function __invoke(string $uuid): void
     {
-        ArticleAggregate::retrieve($articleData->uuid)
+        ArticleAggregate::retrieve($uuid)
             ->delete()
             ->persist();
     }

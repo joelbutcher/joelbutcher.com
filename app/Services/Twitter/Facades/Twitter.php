@@ -3,8 +3,8 @@
 namespace App\Services\Twitter\Facades;
 
 use App\Services\Twitter\Contracts\TwitterServiceInterface;
-use App\Services\Twitter\DTOs\TwitterProfile;
 use App\Services\Twitter\DTOs\Tweet;
+use App\Services\Twitter\DTOs\TwitterProfile;
 use App\Services\Twitter\TwitterService;
 use Illuminate\Support\Facades\Facade;
 

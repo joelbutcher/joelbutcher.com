@@ -9,8 +9,8 @@ use Spatie\EventSourcing\StoredEvents\ShouldBeStored;
 final class ArticleWasCreated extends ShouldBeStored
 {
     /**
-     * @param array<string> $tags
-     * @param array<Platform> $platforms
+     * @param  array<string>  $tags
+     * @param  array<Platform>  $platforms
      */
     public function __construct(
         public readonly string $uuid,
@@ -18,6 +18,7 @@ final class ArticleWasCreated extends ShouldBeStored
         public readonly string $slug,
         public readonly ?string $series,
         public readonly string $excerpt,
+        public readonly ?string $imagePath,
         public readonly ?string $content,
         public readonly CarbonImmutable $createdAt,
         public readonly bool $published = false,

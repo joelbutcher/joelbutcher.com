@@ -9,8 +9,8 @@ use App\Http\Integrations\Twitter\Responses\GetProfileResponse;
 use App\Http\Integrations\Twitter\Responses\SendTweetResponse;
 use App\Http\Integrations\Twitter\TwitterConnector;
 use App\Services\Twitter\Contracts\TwitterServiceInterface;
-use App\Services\Twitter\DTOs\TwitterProfile;
 use App\Services\Twitter\DTOs\Tweet;
+use App\Services\Twitter\DTOs\TwitterProfile;
 
 readonly class TwitterService implements TwitterServiceInterface
 {

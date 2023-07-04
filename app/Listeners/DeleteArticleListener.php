@@ -7,7 +7,6 @@ use App\Domains\Article\Actions\DeleteArticle;
 use App\Domains\Article\DTOs\ArticleData;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use Statamic\Entries\Entry;
 use Statamic\Events\EntryDeleted;
 
 class DeleteArticleListener implements ShouldQueue
@@ -25,11 +24,8 @@ class DeleteArticleListener implements ShouldQueue
             return;
         }
 
-        /** @var Entry $entry */
-        $entry = $event->entry;
-
         ($this->deleteArticle)(
-            articleData: ArticleData::fromEntry($entry),
+            uuid: ArticleData::fromEntry($event->entry)->uuid,
         );
     }
 }

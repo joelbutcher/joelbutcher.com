@@ -55,6 +55,7 @@ return [
 
     'hashnode' => [
         'enabled' => env('HASHNODE_ENABLED'),
+        'publication_id' => env('HASHNODE_PUBLICATION_ID', '649d5f7e7fcfbd9ddc25cc41'),
         'base_url' => env('HASHNODE_API_BASE_URL', 'https://api.hashnode.com'),
         'token' => env('HASHNODE_API_TOKEN'),
     ],

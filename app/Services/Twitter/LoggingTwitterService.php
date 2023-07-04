@@ -3,8 +3,8 @@
 namespace App\Services\Twitter;
 
 use App\Services\Twitter\Contracts\TwitterServiceInterface;
-use App\Services\Twitter\DTOs\TwitterProfile;
 use App\Services\Twitter\DTOs\Tweet;
+use App\Services\Twitter\DTOs\TwitterProfile;
 use Faker\Factory;
 use Faker\Generator;
 use Illuminate\Log\LogManager;

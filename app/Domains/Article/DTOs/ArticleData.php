@@ -9,8 +9,8 @@ use Statamic\Entries\Entry;
 readonly class ArticleData
 {
     /**
-     * @param array<string> $tags
-     * @param array<Platform> $platforms
+     * @param  array<string>  $tags
+     * @param  array<Platform>  $platforms
      */
     public function __construct(
         public string $uuid,
@@ -18,6 +18,7 @@ readonly class ArticleData
         public string $slug,
         public ?string $series,
         public string $excerpt,
+        public ?string $imagePath,
         public ?string $content,
         public bool $published = false,
         public array $tags = [],
@@ -34,6 +35,7 @@ readonly class ArticleData
             slug: $entry->slug(),
             series: $entry->get('series'),
             excerpt: $entry->get('excerpt'),
+            imagePath: $entry->get('image'),
             content: $entry->get('content'),
             published: $entry->published(),
             tags: $entry->get('tags', []),
@@ -53,6 +55,7 @@ readonly class ArticleData
             slug: $article->slug,
             series: null,
             excerpt: $article->excerpt,
+            imagePath: $article->image_path,
             content: $article->content,
             published: $article->hasBeenPublished,
             tags: $article->tags,

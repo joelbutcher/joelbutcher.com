@@ -8,7 +8,6 @@ use App\Domains\Article\Events\ArticleWasPublished;
 use App\Domains\Article\Events\ArticleWasTweeted;
 use App\Domains\Article\Events\ArticleWasUpdated;
 use App\Domains\Article\Projections\Article;
-use Carbon\CarbonImmutable;
 use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 
 class ArticleProjector extends Projector
@@ -21,31 +20,26 @@ class ArticleProjector extends Projector
             'slug' => $event->slug,
             'series' => $event->series,
             'excerpt' => $event->excerpt,
-            'content' => $event->content,
-            'tags' => $event->tags,
-            'platforms' => $event->platforms,
-            'published_at' => $event->published ? CarbonImmutable::now() : null,
-            'created_at' => $event->createdAt,
+            'image_path' => $event->imagePath,
+            'content' => $event->content, 'created_at' => $event->createdAt,
         ]);
     }
 
     public function onArticleWasUpdated(ArticleWasUpdated $event): void
     {
-        $article = Article::findByUuid(uuid: $event->uuid)->writeable();
-
-        $article->update(array_merge([
-            'uuid' => $event->uuid,
-            'title' => $event->title,
-            'slug' => $event->slug,
-            'series' => $event->series,
-            'excerpt' => $event->excerpt,
-            'content' => $event->content,
-            'tags' => $event->tags,
-            'platforms' => $event->platforms,
-            'updated_at' => $event->updatedAt,
-        ], $article->hasBeenPublished ? [] : [
-            'published_at' => $event->published ? CarbonImmutable::now() : null,
-        ]));
+        Article::findByUuid(uuid: $event->uuid)
+            ->writeable()
+            ->update(array_merge([
+                'uuid' => $event->uuid,
+                'title' => $event->title,
+                'slug' => $event->slug,
+                'series' => $event->series,
+                'excerpt' => $event->excerpt,
+                'image_path' => $event->imagePath,
+                'content' => $event->content,
+                'tags' => $event->tags,
+                'updated_at' => $event->updatedAt,
+            ]));
     }
 
     public function onArticleWasPublished(ArticleWasPublished $event): void
@@ -53,6 +47,7 @@ class ArticleProjector extends Projector
         Article::findByUuid(uuid: $event->uuid)
             ->writeable()
             ->update([
+                'platforms' => array_filter($event->platforms, fn ($platform) => $platform->isEnabled()),
                 'published_at' => $event->publishedAt,
             ]);
     }

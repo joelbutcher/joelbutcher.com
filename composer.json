@@ -24,6 +24,7 @@
         "sammyjo20/saloon-laravel": "*",
         "spatie/laravel-backup": "^8.1",
         "spatie/laravel-event-sourcing": "*",
+        "spatie/laravel-medialibrary": "^10.10",
         "statamic/cms": "^4.0",
         "torchlight/torchlight-commonmark": "^0.5.5"
     },
