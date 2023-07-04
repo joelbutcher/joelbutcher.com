@@ -37,6 +37,10 @@ final readonly class SaveArticle
             ));
         }
 
+        if ($jobs->isEmpty()) {
+            return;
+        }
+
         Bus::chain($jobs)->dispatch();
     }
 }

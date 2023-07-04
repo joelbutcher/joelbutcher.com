@@ -21,7 +21,9 @@ class ArticleProjector extends Projector
             'series' => $event->series,
             'excerpt' => $event->excerpt,
             'image_path' => $event->imagePath,
-            'content' => $event->content, 'created_at' => $event->createdAt,
+            'content' => $event->content,
+            'tags' => $event->tags,
+            'created_at' => $event->createdAt,
         ]);
     }
 

@@ -25,7 +25,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @property string $excerpt
  * @property ?string $image_path
  * @property ?string $content
- * @property array $tags
+ * @property ?array $tags
  * @property Collection<Platform> $platforms
  * @property ?Tweet $tweet
  * @property ?array $devto_response
@@ -36,6 +36,8 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @property CarbonImmutable|null $published_at
  * @property CarbonImmutable|null $created_at
  * @property CarbonImmutable|null $updated_at
+ *
+ * @method static ArticleFactory factory($count = null, $state = [])
  */
 class Article extends Projection
 {
@@ -80,7 +82,7 @@ class Article extends Projection
 
     public function composeTweet(): string
     {
-        return TweetComposer::compose($this->title, $this->slug, $this->tags);
+        return TweetComposer::compose($this->title, $this->slug, $this->tags ?? []);
     }
 
     public function toDto(): ArticleData
