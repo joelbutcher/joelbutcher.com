@@ -30,6 +30,6 @@ class ArticleException extends DomainException
             return '.';
         }
 
-        return rtrim($reason, '.');
+        return rtrim(" $reason", '.');
     }
 }

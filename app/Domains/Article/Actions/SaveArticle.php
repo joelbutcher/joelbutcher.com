@@ -6,6 +6,7 @@ use App\Domains\Article\DTOs\ArticleData;
 use App\Domains\Article\Projections\Article;
 use App\Jobs\PublishArticleToPlatforms;
 use App\Jobs\TweetAboutArticle;
+use Illuminate\Support\Facades\Bus;
 
 final readonly class SaveArticle
 {
@@ -21,21 +22,21 @@ final readonly class SaveArticle
             ? ($this->updateArticle)(data: $data)
             : ($this->createArticle)(data: $data);
 
-        if (! $data->published) {
-            return;
+        $jobs = collect();
+
+        if ($data->published) {
+            $jobs->push(new PublishArticleToPlatforms(
+                article: $article,
+                platforms: [...$data->platforms],
+            ));
         }
 
-        dispatch(new PublishArticleToPlatforms(
-            article: $article,
-            platforms: [...$data->platforms],
-        ));
-
-        if (! $data->postToTwitter) {
-            return;
+        if ($data->postToTwitter) {
+            $jobs->push(new TweetAboutArticle(
+                article: $article,
+            ));
         }
 
-        dispatch(new TweetAboutArticle(
-            article: $article,
-        ));
+        Bus::chain($jobs)->dispatch();
     }
 }
