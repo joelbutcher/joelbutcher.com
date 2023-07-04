@@ -17,7 +17,7 @@ class PublishArticleToPlatforms implements ShouldQueue, ShouldBeUnique
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
-     * @param array<array-key, Platform> $platforms
+     * @param  array<array-key, Platform>  $platforms
      */
     public function __construct(
         private readonly Article $article,
