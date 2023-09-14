@@ -5,7 +5,7 @@ title: Home
 template: pages/index
 articles:
   - a56805fb-843a-4cec-afc6-c78a66bcdb15
-updated_by: 4c87d8f0-5c2e-43cf-8e72-5b08d175f266
+updated_by: 665410d0-476a-4e56-a7de-f4f0bd33541c
 updated_at: 1688033648
 intro: 'Software Engineer, Technical Writer, and Community Advocate.'
 ---
