@@ -12,7 +12,7 @@ use Statamic\Events\EntrySaved;
 
 class CreateOrUpdateArticleListener implements ShouldQueue
 {
-    use InteractsWithQueue, HandlesArticleEntries;
+    use HandlesArticleEntries, InteractsWithQueue;
 
     public function __construct(
         private readonly SaveArticle $saveArticle

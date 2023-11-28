@@ -33,7 +33,7 @@ class Article extends Projection
 
     public function hasBeenShared(): bool
     {
-        return null !== $this->shared_at;
+        return $this->shared_at !== null;
     }
 
     public static function uuid(string $uuid): ?Article

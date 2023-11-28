@@ -12,7 +12,7 @@ use Statamic\Events\EntryDeleted;
 
 class DeleteArticleListener implements ShouldQueue
 {
-    use InteractsWithQueue, HandlesArticleEntries;
+    use HandlesArticleEntries, InteractsWithQueue;
 
     public function __construct(
         private readonly DeleteArticle $deleteArticle,

@@ -32,9 +32,6 @@ class ArticleStateMachine extends AggregatePartial
         return in_array($this->status, $statuses);
     }
 
-    /**
-     * @return ArticleStatus
-     */
     public function status(): ArticleStatus
     {
         return $this->status;
